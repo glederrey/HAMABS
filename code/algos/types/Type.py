@@ -9,7 +9,7 @@ class Type:
         self.biogeme = kwargs.get('biogeme', None)
         self.verbose = kwargs.get('verbose', False)
 
-    def update_batch(self):
+    def update_batch(self, it, fk_full):
         pass
 
     def compute_alpha(self):

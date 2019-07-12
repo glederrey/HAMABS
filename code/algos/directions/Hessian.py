@@ -14,7 +14,7 @@ class Hessian(Direction):
             sample = self.biogeme.database.data.sample(n=batch, replace=False)
             self.biogeme.theC.setData(sample)
 
-        def grad_hess(x):
+        def grad_hess(x, B):
             tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=True)
 
             ret = []

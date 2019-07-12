@@ -48,3 +48,13 @@ def cg(xk, A, b):
         dri0 = dri1  # update np.dot(ri,ri) for next time.
 
     return xsupi
+
+def back_to_bounds(xk, bounds):
+    if bounds is not None:
+        tmp = []
+        for i, x in enumerate(xk):
+            tmp.append(min(max(x, bounds[i][0]), bounds[i][1]))
+
+        return np.array(tmp)
+    else:
+        return xk

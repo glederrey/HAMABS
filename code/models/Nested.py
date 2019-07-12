@@ -95,7 +95,7 @@ class Nested:
 
         self.biogeme.theC.setData(self.database.data)
 
-    def optimize(self, algo, **kwargs):
+    def optimize_old(self, algo, **kwargs):
 
         if 'biogeme' in kwargs.keys():
             raise ValueError('Please remove biogeme from the kwargs.')
@@ -110,3 +110,12 @@ class Nested:
         self.algo = algo(self.biogeme.calculateLikelihood, self.x0, **params)
 
         return self.algo.solve(maximize=True)
+
+    def optimize(self, algo, **kwargs):
+
+        self.biogeme.database = self.database
+        self.biogeme.theC.setData(self.biogeme.database.data)
+
+        algo.__prep__(self.x0, self.biogeme, **kwargs)
+
+        return algo.solve(maximize=True)

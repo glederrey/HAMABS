@@ -43,6 +43,7 @@ class IOA:
         # Add more info using Biogeme
         kwargs['full_size'] = len(self.biogeme.database.data)
         kwargs['biogeme'] = self.biogeme
+        kwargs['x0'] = self.x0
 
         # Some variables used for the algorithm
         self.status = '?'
@@ -50,7 +51,7 @@ class IOA:
 
         # Other parameters in kwargs
         self.nbr_epochs = kwargs.get('nbr_epochs', 20)
-        self.thresh = kwargs.get('thresh', 1.0e-6)
+        self.thresh = kwargs.get('thresh', 1.0e-5)
         self.bounds = kwargs.get('bounds', None)
         self.verbose = kwargs.get('verbose', False)
         self.seed = kwargs.get('seed', -1)
@@ -87,6 +88,8 @@ class IOA:
             self.thresh = 1e-4
         elif self.dir_str == 'hess':
             self.dir = Hessian(**kwargs)
+        elif self.dir_str == 'bfgs':
+            self.dir = BFGS(**kwargs)
 
         if self.alg_type_str == 'LS':
             self.alg_type = LineSearch(**kwargs)
@@ -134,6 +137,8 @@ class IOA:
         self.ep = 0
         self.it = 0
 
+        Bk = self.dir.init_hessian(self.x0)
+
         while self.ep < self.nbr_epochs:
 
             # Compute the value of the obj function on all of the data
@@ -142,7 +147,7 @@ class IOA:
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch, self.alg_type.full_size)
 
             fk = f(xk)
-            gk, Bk = grad_hess(xk)
+            gk, Bk = grad_hess(xk, Bk)
 
             if np.linalg.norm(gk) <= self.thresh:
                 if self.verbose:
@@ -173,9 +178,11 @@ class IOA:
                 self._write("  ||dir|| = {:.3E}\n".format(np.linalg.norm(direction)))
                 self._write("  alpha = {:.3E}\n".format(alpha))
 
-            xk = xk + alpha * direction
+            xk_new = xk + alpha * direction
 
-            xk = back_to_bounds(xk, self.bounds)
+            Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk)
+
+            xk = back_to_bounds(xk_new, self.bounds)
 
             # Update the batch size if we're using an ABS algorithm
             self.alg_type.update_batch(self.it, fk_full)
@@ -196,7 +203,7 @@ class IOA:
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch, self.alg_type.full_size)
 
             fk = f(xk)
-            gk, Bk = grad_hess(xk)
+            gk, Bk = grad_hess(xk, Bk)
 
             self._write("Algorithm not fully optimized!\n")
             self._write("  x_n = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
