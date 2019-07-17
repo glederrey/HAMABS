@@ -33,7 +33,7 @@ class OptAlg:
         if direction == 'grad' and 'TR' in alg_type:
             raise ValueError("Trust Region does not work with gradient as the direction.")
 
-        # Initalize some parameters
+        # Initialize some parameters
 
         # Return values
         self.xs = []
