@@ -33,6 +33,7 @@ class BFGS(Direction):
         return -np.dot(Bk, gk)
 
     def init_hessian(self, x0):
+
         return self.I
 
     def upd_hessian(self, xk, xk_new, f, fprime, Bk):

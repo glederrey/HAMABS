@@ -86,8 +86,6 @@ class OptAlg:
         # Prepare the direction
         if self.dir_str == 'grad':
             self.dir = Gradient(**kwargs)
-            # We need a big threshold. Otherwise, there are some issues. =(
-            self.thresh = 1e-4
         elif self.dir_str == 'hess':
             self.dir = Hessian(**kwargs)
         elif self.dir_str == 'bfgs':
@@ -98,8 +96,16 @@ class OptAlg:
             self.alg_type = LineSearch(**kwargs)
         elif self.alg_type_str == 'LS-ABS':
             self.alg_type = LineSearchABS(**kwargs)
+        elif self.alg_type_str == 'TR':
+            self.alg_type = TrustRegion(**kwargs)
+        elif self.alg_type_str == 'TR-ABS':
+            self.alg_type = TrustRegionABS(**kwargs)
 
-        print(self.alg_type)
+        # Change the threshold for optimization, otherwise we have some issues for the convergence
+        if self.dir_str == 'grad':
+            self.thresh = 1e-4
+        elif self.dir_str == 'bfgs' and 'TR' in self.alg_type_str:
+            self.thresh = 1e-4
 
     def solve(self, maximize=False):
         """
@@ -140,6 +146,9 @@ class OptAlg:
         self.ep = 0
         self.it = 0
 
+        # Initialize the algorithm
+        self.alg_type.init_solve()
+
         # Initialize the Hessian to an identity matrix for BFGS
         # Nothing for the other directions
         Bk = self.dir.init_hessian(self.x0)
@@ -177,19 +186,8 @@ class OptAlg:
                 self._write("  xk = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
                 self._write("  f(xk) = {:.3f}\n".format(fk_full))
 
-            # Compute the direction
-            direction = self.dir.compute_direction(xk, gk, Bk)
-
-            # Compute the value for alpha
-            alpha = self.alg_type.compute_alpha(f, fprime, xk, direction, self.fs)
-
-            if self.verbose:
-                self._write("  ||gk|| = {:.3E}\n".format(np.linalg.norm(gk)))
-                self._write("  ||dir|| = {:.3E}\n".format(np.linalg.norm(direction)))
-                self._write("  alpha = {:.3E}\n".format(alpha))
-
-            # Update the parameter value
-            xk_new = xk + alpha * direction
+            # Get the new value for x_k using either a LineSearch or a TrustRegion algorithm
+            xk_new = self.alg_type.update_xk(xk, fk, gk, Bk, f, fprime, self.dir, self.fs)
 
             # Update the hessian; only used by BFGS.
             # Return the same Bk for the other directions

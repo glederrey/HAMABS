@@ -8,11 +8,16 @@ class Type:
         self.full_size = kwargs.get('full_size', None)
         self.biogeme = kwargs.get('biogeme', None)
         self.verbose = kwargs.get('verbose', False)
+        x0 = kwargs.get('x0', None)
+        self.n = len(x0)
 
-    def update_batch(self, it, fk_full):
+    def init_solve(self):
         pass
 
-    def compute_alpha(self):
+    def update_xk(self):
+        pass
+
+    def update_batch(self, it, fk_full):
         pass
 
     def to_str(self):
