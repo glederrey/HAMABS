@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH --workdir /home/glederre/DCM_Opti/code/server/cost_hessian
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/cost_hessian
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 24
