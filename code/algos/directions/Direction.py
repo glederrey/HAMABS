@@ -18,9 +18,11 @@ class Direction:
         return self.f(x)
 
     def init_hessian(self, x0):
+        # Used by BFGS
         return None
 
     def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+        # Used by BFGS and Hybrid
         return Bk
 
     def compute_func_and_derivatives(self):
@@ -28,6 +30,10 @@ class Direction:
 
     def compute_direction(self):
         pass
+
+    def update_dir(self, batch, full_size, Bk):
+        # used by Hybrid
+        return Bk
 
     def to_str(self):
         return "direction"

@@ -155,11 +155,6 @@ class TrustRegion(Type):
             exitIter = k >= self.iters
             exitOptimal = sqrtry <= stopTol
 
-        if k < self.iters and not onBoundary:
-            self.status = 'residual small'
-        elif k >= self.iters:
-            self.status = 'max iter'
-
         return z
 
     def to_boundary(self, z, p, delta):

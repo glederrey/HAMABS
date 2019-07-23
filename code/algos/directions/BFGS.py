@@ -54,9 +54,9 @@ class BFGS(Direction):
         A1 = self.I - np.dot(sk[:, np.newaxis], yk[np.newaxis, :]) * rhok
         A2 = self.I - np.dot(yk[:, np.newaxis], sk[np.newaxis, :]) * rhok
 
-        Bk = np.dot(A1, np.dot(Bk, A2)) + (rhok * np.dot(sk[:, np.newaxis], sk[np.newaxis, :]))
+        Bk = np.dot(A1, np.dot(Bk, A2)) + (rhok * sk[:, np.newaxis] * sk[np.newaxis, :])
 
         return Bk
 
     def to_str(self):
-        return "Gradient"
+        return "BFGS"
