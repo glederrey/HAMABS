@@ -44,13 +44,14 @@ if __name__ == '__main__':
             steps = 20
 
         # Delta and batch size to be tested
-        delta = int(n / steps)
+        delta = n / steps
 
-        if 'LPMC' in str_:
-            sizes = list(range(delta, n, delta))
-            sizes[-1] = n
-        else:
-            sizes = list(range(delta, n+1, delta))
+        sizes = np.array(np.arange(delta, n + 1, delta))
+
+        sizes = [int(round(val)) for val in sizes]
+
+        print(sizes)
+        asd
 
         # Number of repetitions (1 = new sample, 2 = same sample)
         tot_rep1 = 4
