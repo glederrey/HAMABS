@@ -39,9 +39,9 @@ if __name__ == '__main__':
         n = len(model.biogeme.database.data)
 
         # Number of steps. Bigger for LPMC since more data
-        steps = 9
+        steps = 10
         if 'LPMC' in str_:
-            steps = 19
+            steps = 20
 
         # Delta and batch size to be tested
         delta = int(n / steps)
