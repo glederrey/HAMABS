@@ -20,7 +20,7 @@ if __name__ == '__main__':
         os.makedirs('./results')
 
     models = [MNL, Nested, LPMC_DrivingCost, LPMC_RemoveRest, LPMC_Full]
-    str_model = ['MNL', 'Nested', 'LPMC_DrivingCost', 'LPMC_RemoveRest', 'LPMC_Full']
+    str_model = ['MNL', 'Nested']#, 'LPMC_DrivingCost', 'LPMC_RemoveRest', 'LPMC_Full']
 
     # Go through each model to test all of them
     for model_constr, str_ in zip(models, str_model):
@@ -46,8 +46,11 @@ if __name__ == '__main__':
         # Delta and batch size to be tested
         delta = int(n / steps)
 
-        sizes = list(range(delta, n, delta))
-        sizes[-1] = n
+        if 'LPMC' in str_:
+            sizes = list(range(delta, n, delta))
+            sizes[-1] = n
+        else:
+            sizes = list(range(delta, n+1, delta))
 
         # Number of repetitions (1 = new sample, 2 = same sample)
         tot_rep1 = 4
