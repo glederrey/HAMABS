@@ -29,12 +29,11 @@ class ABS:
         self.cum_avg = []
         self.dcum_avg = []
 
-    def upd(self, curr_iter, f, batch ):
+    def upd(self, curr_iter, f, batch):
 
         self.f_vals.append(f)
 
         self.cum_avg.append(wma(self.f_vals, curr_iter+1, self.window))
-        #self.cum_avg.append(ema(self.f_vals, curr_iter + 1, self.window, 5))
 
         # In case, we don't enter the ifs
         new_batch = batch

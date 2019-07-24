@@ -8,7 +8,7 @@ class Gradient(Direction):
 
     def compute_func_and_derivatives(self, mult, batch, full_size):
 
-        if batch != full_size:
+        if batch != full_size or self.batch_changed:
             # Set the sample for the batch
             sample = self.biogeme.database.data.sample(n=batch, replace=False)
             self.biogeme.theC.setData(sample)

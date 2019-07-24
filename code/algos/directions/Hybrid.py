@@ -17,7 +17,7 @@ class Hybrid(Direction):
 
     def compute_func_and_derivatives(self, mult, batch, full_size):
 
-        if batch != full_size:
+        if batch != full_size or self.batch_changed:
             # Set the sample for the batch
             sample = self.biogeme.database.data.sample(n=batch, replace=False)
             self.biogeme.theC.setData(sample)
@@ -51,15 +51,14 @@ class Hybrid(Direction):
         return self.I
 
     def compute_direction(self, xk, gk, Bk):
-        if self.use_hessian:
-            return cg(xk, Bk, -gk)
-        else:
-            return -np.dot(Bk, gk)
+        return cg(xk, Bk, -gk)
 
     def upd_hessian(self, xk, xk_new, f, fprime, Bk):
         if self.use_hessian:
             return Bk
         else:
+            # Have a look at the Wikipedia page for BFGS for this algorithm
+            # https://en.wikipedia.org/wiki/Broyden-Fletcher-Goldfarb-Shanno_algorithm
             sk = xk_new - xk
 
             gk = fprime(xk)
@@ -68,30 +67,35 @@ class Hybrid(Direction):
             yk = gk_new - gk
 
             try:  # this was handled in numeric, let it remains for more safety
-                rhok = 1.0 / (np.dot(yk, sk))
+                alpha = 1. / np.dot(yk.T, sk)
             except ZeroDivisionError:
-                rhok = 1000.0
-            if np.isinf(rhok):  # this is patch for numpy
-                rhok = 1000.0
+                alpha = 1000.0
 
-            A1 = self.I - np.dot(sk[:, np.newaxis], yk[np.newaxis, :]) * rhok
-            A2 = self.I - np.dot(yk[:, np.newaxis], sk[np.newaxis, :]) * rhok
+            if np.isinf(alpha):  # this is patch for numpy
+                alpha = 1000.0
 
-            Bk = np.dot(A1, np.dot(Bk, A2)) + (rhok * np.dot(sk[:, np.newaxis], sk[np.newaxis, :]))
+            try:  # this was handled in numeric, let it remains for more safety
+                beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
+            except ZeroDivisionError:
+                beta = 1000.0
+
+            if np.isinf(beta):  # this is patch for numpy
+                beta = 1000.0
+
+            u = yk.reshape(len(yk), 1)
+            v = np.dot(Bk, sk)
+            v = v.reshape(len(v), 1)
+
+            Bk = Bk + alpha * np.dot(u, u.T) + beta * np.dot(v, v.T)
 
             return Bk
 
-    def update_dir(self, batch, full_size, Bk):
+    def update_dir(self, batch, full_size):
         # Very simple rule
         if batch >= self.perc*full_size and self.use_hessian:
             self._write("  Change from Newton step to BFGS!\n")
 
             self.use_hessian = False
-
-            # Here, we need to invert Bk since we're using the inverse in the BFGS algorithm
-            return np.linalg.inv(Bk)
-        else:
-            return Bk
 
     def to_str(self):
         return "Hybrid"

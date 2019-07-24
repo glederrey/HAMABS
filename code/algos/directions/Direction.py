@@ -10,6 +10,8 @@ class Direction:
 
         self.f = lambda x: self.biogeme.calculateLikelihood(x)
 
+        self.batch_changed = False
+
     def compute_full_f(self, x):
         # Set the full data
         self.biogeme.theC.setData(self.biogeme.database.data)
@@ -31,9 +33,8 @@ class Direction:
     def compute_direction(self):
         pass
 
-    def update_dir(self, batch, full_size, Bk):
-        # used by Hybrid
-        return Bk
+    def update_dir(self, batch, full_size):
+        pass
 
     def to_str(self):
         return "direction"
