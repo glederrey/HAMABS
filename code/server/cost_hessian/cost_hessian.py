@@ -50,9 +50,6 @@ if __name__ == '__main__':
 
         sizes = [int(round(val)) for val in sizes]
 
-        print(sizes)
-        asd
-
         # Number of repetitions (1 = new sample, 2 = same sample)
         tot_rep1 = 4
         tot_rep2 = 5
