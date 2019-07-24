@@ -90,6 +90,8 @@ class OptAlg:
             self.dir = Hessian(**kwargs)
         elif self.dir_str == 'bfgs':
             self.dir = BFGS(**kwargs)
+        elif self.dir_str == 'hybrid':
+            self.dir = Hybrid(**kwargs)
 
         # Prepare the type
         if self.alg_type_str == 'LS':
@@ -104,7 +106,7 @@ class OptAlg:
         # Change the threshold for optimization, otherwise we have some issues for the convergence
         if self.dir_str == 'grad':
             self.thresh = 1e-4
-        elif self.dir_str == 'bfgs' and 'TR' in self.alg_type_str:
+        elif (self.dir_str == 'bfgs' or self.dir_str == 'hybrid') and 'TR' in self.alg_type_str:
             self.thresh = 1e-4
 
     def solve(self, maximize=False):
@@ -198,6 +200,9 @@ class OptAlg:
 
             # Update the batch size if we're using an ABS algorithm
             self.alg_type.update_batch(self.it, fk_full)
+
+            # Update the Hybrid direction if needed (does nothing for all other directions)
+            Bk = self.dir.update_dir(self.alg_type.batch, self.alg_type.full_size, Bk)
 
             if self.verbose:
                 self._write('\n')
