@@ -1,0 +1,434 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"gcc/7.3.0"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore-cache load "gcc/7.3.0"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+STARTING TESTS FOR HESSIAN mer jui 24 11:40:40 CEST 2019
+Start testing Hessian for model MNL
+  Start for size 752. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.002
+
+  Start for size 1504. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.002
+
+  Start for size 2256. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.002
+
+  Start for size 3008. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.002
+
+  Start for size 3760. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.002
+
+  Start for size 4512. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.003
+
+  Start for size 5264. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.003
+
+  Start for size 6016. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.003
+
+  Start for size 6768. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.003
+
+
+
+Start testing Hessian for model Nested
+  Start for size 752. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.003
+
+  Start for size 1504. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.004
+
+  Start for size 2256. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.005
+
+  Start for size 3008. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.006
+
+  Start for size 3760. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.008
+
+  Start for size 4512. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.010
+
+  Start for size 5264. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.010
+
+  Start for size 6016. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.011
+
+  Start for size 6768. Total of 20 iterations.
+    Iter 1/20
+    Iter 2/20
+    Iter 3/20
+    Iter 4/20
+    Iter 5/20
+    Iter 6/20
+    Iter 7/20
+    Iter 8/20
+    Iter 9/20
+    Iter 10/20
+    Iter 11/20
+    Iter 12/20
+    Iter 13/20
+    Iter 14/20
+    Iter 15/20
+    Iter 16/20
+    Iter 17/20
+    Iter 18/20
+    Iter 19/20
+    Iter 20/20
+    Avg time obtained: 0.013
+
+
+
+FINISHED at mer jui 24 11:41:00 CEST 2019
