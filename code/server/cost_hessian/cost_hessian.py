@@ -57,10 +57,12 @@ if __name__ == '__main__':
         tot_rep = tot_rep1 * tot_rep2
 
         # Go through each size to be tested
-        res = {'size': sizes, 'time': []}
+        res = {'size': sizes, 'time': {'func': [], 'hess': []}}
         for size in sizes:
             print("  Start for size {}. Total of {} iterations.".format(size, tot_rep))
-            tmp = []
+            tmp_func = []
+            tmp_hess = []
+
             count = 0
             # For each repetion 1, we resample the data
             for rep1 in range(tot_rep1):
@@ -88,12 +90,16 @@ if __name__ == '__main__':
 
                     count += 1
 
-                    # Add the time in a tmp array
-                    tmp.append(np.abs(delta1 - delta2))
+                    # Add the times in tmp arrays
+                    tmp_func.append(delta1)
+                    tmp_hess.append(np.abs(delta1 - delta2))
 
             # Add the results in the dict
-            print("    Avg time obtained: {:.3E}\n".format(np.mean(tmp)))
-            res['time'].append(tmp)
+            print("    Avg time obtained: {:.3E}\n".format(np.mean(tmp_func)))
+            res['time']['func'].append(tmp_func)
+            print("    Avg delta obtained: {:.3E}\n".format(np.mean(tmp_hess)))
+            res['time']['hess'].append(tmp_hess)
+
 
             # Save the dict (in case something goes wrong=
             with open('./results/' + str_ + '.json', 'w') as outfile:
