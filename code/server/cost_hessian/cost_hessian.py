@@ -89,10 +89,10 @@ if __name__ == '__main__':
                     count += 1
 
                     # Add the time in a tmp array
-                    tmp.append(delta1 - delta2)
+                    tmp.append(np.abs(delta1 - delta2))
 
             # Add the results in the dict
-            print("    Avg time obtained: {:.3f}\n".format(np.mean(tmp)))
+            print("    Avg time obtained: {:.3E}\n".format(np.mean(tmp)))
             res['time'].append(tmp)
 
             # Save the dict (in case something goes wrong=
