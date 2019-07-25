@@ -157,6 +157,9 @@ class OptAlg:
 
         while self.ep < self.nbr_epochs:
 
+            # Compute the value of the obj function on all of the data
+            fk_full = self.dir.compute_full_f(xk)
+
             # Get the function, its gradient and the Hessian
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch,
                                                                          self.alg_type.full_size)
@@ -176,13 +179,14 @@ class OptAlg:
             # Add the return values to the arrays
             self.xs.append(xk)
             self.fs.append(fk)
+            self.fs_full.append(fk_full)
             self.epochs.append(self.ep)
             self.batches.append(self.alg_type.batch)
 
             if self.verbose:
                 self._write("Epoch {}:\n".format(self.ep))
                 self._write("  xk = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
-                self._write("  f(xk) = {:.3f}\n".format(fk))
+                self._write("  f(xk) = {:.3f}\n".format(fk_full))
 
             # Get the new value for x_k using either a LineSearch or a TrustRegion algorithm
             xk_new = self.alg_type.update_xk(xk, fk, gk, Bk, f, fprime, self.dir, self.fs)
@@ -195,10 +199,7 @@ class OptAlg:
             xk = back_to_bounds(xk_new, self.bounds)
 
             # Update the batch size if we're using an ABS algorithm
-            batch_changed = self.alg_type.update_batch(self.it, fk)
-
-            # Tell the direction if the batch changed (used by ABS)
-            self.dir.batch_changed = batch_changed
+            self.alg_type.update_batch(self.it, fk)
 
             # Update the Hybrid direction if needed (does nothing for all other directions)
             self.dir.update_dir(self.alg_type.batch, self.alg_type.full_size)
@@ -215,6 +216,7 @@ class OptAlg:
             status = 'Optimum not reached'
 
         if self.verbose and not self.optimized:
+            fk_full = self.dir.compute_full_f(xk)
 
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch, self.alg_type.full_size)
 
@@ -222,14 +224,14 @@ class OptAlg:
 
             self._write("Algorithm not fully optimized!\n")
             self._write("  x_n = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
-            self._write("  f(x_n) = {:.3f}\n".format(fk))
+            self._write("  f(x_n) = {:.3f}\n".format(fk_full))
 
         self.opti_time = time.clock() - start_time
 
         dct = {'x': xk,
                'success': self.optimized,
                'status': status,
-               'fun': fk,
+               'fun': fk_full,
                'jac': gk,
                'hess': Bk,
                'nit': self.it,

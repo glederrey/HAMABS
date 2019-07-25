@@ -17,8 +17,14 @@ class TrustRegionABS(TrustRegion):
         factor_upd = kwargs.get('factor_upd', 2)
         self.abs = ABS(window, thresh_upd, count_upd, factor_upd, self.verbose, self.full_size)
 
-    def update_batch(self, it, fk_full):
-        self.batch = self.abs.upd(it, fk_full, self.batch)
+    def update_batch(self, it, fk):
+        old_batch = self.batch
+        self.batch = self.abs.upd(it, fk/self.batch, self.batch)
+
+        if self.batch != old_batch:
+            return True
+        else:
+            return False
 
     def to_str(self):
         return "Trust Region ABS"
