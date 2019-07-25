@@ -73,23 +73,14 @@ if __name__ == '__main__':
                     print("    Iter {}/{}".format(count + 1, tot_rep))
 
                     # Compute the hessian using biogeme
-                    start1 = time.time()
+                    start = time.time()
                     model.biogeme.calculateLikelihoodAndDerivatives(model.x0, hessian=True)
-                    stop1 = time.time()
-
-                    delta1 = stop1 - start1
-
-                    # Same function without the hessian
-                    start2 = time.time()
-                    model.biogeme.calculateLikelihoodAndDerivatives(model.x0, hessian=False)
-                    stop2 = time.time()
-
-                    delta2 = stop2 - start2
+                    stop = time.time()
 
                     count += 1
 
                     # Add the time in a tmp array
-                    tmp.append(delta1 - delta2)
+                    tmp.append(stop - start)
 
             # Add the results in the dict
             print("    Avg time obtained: {:.3f}\n".format(np.mean(tmp)))
