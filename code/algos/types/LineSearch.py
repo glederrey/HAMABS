@@ -1,5 +1,5 @@
 from .Type import Type
-from .helpers import ls_wolfe12
+from .helpers import ls_wolfe12, line_search
 
 import numpy as np
 
@@ -9,7 +9,7 @@ class LineSearch(Type):
     def __init__(self, **kwargs):
         Type.__init__(self, **kwargs)
 
-        self.batch = int(self.full_size)
+        self.batch = self.full_size
         self.stocha = False
 
     def compute_alpha(self, f, fprime, xk, direction, fs):
@@ -23,6 +23,8 @@ class LineSearch(Type):
 
         alpha = ls_wolfe12(f, fprime, xk, direction, gk, fs[-1], old_old_fval)
 
+        #alpha = line_search(f, xk, direction)
+
         return alpha
 
     def update_xk(self, xk, fk, gk, Bk, f, fprime, dir, fs):
@@ -34,7 +36,6 @@ class LineSearch(Type):
         alpha = self.compute_alpha(f, fprime, xk, direction, fs)
 
         if self.verbose:
-            self._write("  ||gk|| = {:.3E}\n".format(np.linalg.norm(gk)))
             self._write("  ||dir|| = {:.3E}\n".format(np.linalg.norm(direction)))
             self._write("  alpha = {:.3E}\n".format(alpha))
 

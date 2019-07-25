@@ -56,14 +56,13 @@ def backtracking_line_search(func, g, x, step):
         alpha = tau * alpha
 
 
-def line_search(func, x, step, bounds):
+def line_search(func, x, dir):
     ll = func(x)
 
     alpha = 5
 
     while True:
-        tmp_x = x + alpha * step
-        tmp_x = back_to_bounds(tmp_x, bounds)
+        tmp_x = x + alpha * dir
         if func(tmp_x) < ll or alpha < 1e-8:
             return alpha
 

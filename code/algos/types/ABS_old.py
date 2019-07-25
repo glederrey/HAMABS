@@ -8,22 +8,14 @@ import sys
 
 class ABS:
 
-    def __init__(self, update='geometric', window=10, thresh_upd=1, count_upd=2, perc_upd=0.1, factor_upd=2, verbose=False, full_size=np.infty):
-
-        self.update = update
-
-        if self.update not in ['geometric', 'linear']:
-            raise ValueError('The update has to be either linear or geometric.')
+    def __init__(self, window=10, thresh_upd=1, count_upd=2, factor_upd=2, verbose=False, max=np.infty):
 
         self.window = window
         self.thresh_upd = thresh_upd
         self.count_upd = count_upd
-        self.perc_upd = perc_upd
         self.factor_upd = factor_upd
         self.verbose = verbose
-        self.full_size = full_size
-
-        self.batch_upd = int(np.round(self.perc_upd * self.full_size))
+        self.max = max
 
         self.full_data = False
         self.count_under_thresh = 0
@@ -65,13 +57,10 @@ class ABS:
                 if self.count_under_thresh == self.count_upd:
                     self.count_under_thresh = 0
 
-                    if self.update is 'linear':
-                        new_bs = batch + self.batch_upd
-                    elif self.update is 'geometric':
-                        new_bs = int(self.factor_upd * batch)
+                    new_bs = int(self.factor_upd * batch)
 
-                    if new_bs >= self.full_size:
-                        new_batch = self.full_size
+                    if new_bs >= self.max:
+                        new_batch = self.max
                         self.full_data = True
                     else:
                         new_batch = new_bs

@@ -54,8 +54,7 @@ class TrustRegion(Type):
             self._write("  deltak = {:.2f}\n".format(self.deltak))
             self._write("  zk = {}\n".format(zk))
             self._write("  ||zk|| = {:.3E}\n".format(np.linalg.norm(zk)))
-            self._write("  ||gk|| = {:.3E}\n".format(np.linalg.norm(gk)))
-            self._write("  status: {}\n\n".format(self.status))
+            self._write("  status: {}\n".format(self.status))
 
         if rho < self.eta2:
             self.deltak = self.t1 * self.deltak

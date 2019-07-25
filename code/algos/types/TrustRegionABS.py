@@ -11,11 +11,13 @@ class TrustRegionABS(TrustRegion):
         self.stocha = True
 
         # Parameters for Batch Size Update
+        update = kwargs.get('update', 'geometric')
         window = kwargs.get('window', 10)
         thresh_upd = kwargs.get('thresh_upd', 1)
         count_upd = kwargs.get('count_upd', 2)
+        perc_upd = kwargs.get('perc_upd', 0.1)
         factor_upd = kwargs.get('factor_upd', 2)
-        self.abs = ABS(window, thresh_upd, count_upd, factor_upd, self.verbose, self.full_size)
+        self.abs = ABS(update, window, thresh_upd, count_upd, perc_upd, factor_upd, self.verbose, self.full_size)
 
     def update_batch(self, it, fk):
         old_batch = self.batch

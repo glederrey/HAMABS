@@ -261,15 +261,9 @@ class LPMC_RemoveRest:
 
     def optimize(self, algo, **kwargs):
 
-        if 'biogeme' in kwargs.keys():
-            raise ValueError('Please remove biogeme from the kwargs.')
+        self.biogeme.database = self.database
+        self.biogeme.theC.setData(self.biogeme.database.data)
 
-        params = {'biogeme': self.biogeme,
-                  'full_size': len(self.biogeme.database.data)}
+        algo.__prep__(self.x0, self.biogeme, **kwargs)
 
-        for k in kwargs.keys():
-            params[k] = kwargs[k]
-
-        self.algo = algo(self.biogeme.calculateLikelihood, self.x0, **params)
-
-        return self.algo.solve(maximize=True)
+        return algo.solve(maximize=True)

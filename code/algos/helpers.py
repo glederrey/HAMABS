@@ -15,3 +15,10 @@ def back_to_bounds(xk, bounds):
         return np.array(tmp)
     else:
         return xk
+
+
+def stop_crit(xs, f, grad):
+
+    vals = [np.abs(x*df) for x, df in zip(xs, grad)]
+
+    return np.max(vals)/f

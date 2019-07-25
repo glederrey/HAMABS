@@ -87,24 +87,6 @@ class MNL:
         self.biogeme.modelName = "01logit"
         self.biogeme.generateHtml = False
 
-    def optimize_old(self, algo, **kwargs):
-
-        if 'biogeme' in kwargs.keys():
-            raise ValueError('Please remove biogeme from the kwargs.')
-
-        params = {'biogeme': self.biogeme,
-                  'full_size': len(self.biogeme.database.data)}
-
-        for k in kwargs.keys():
-            params[k] = kwargs[k]
-
-        self.biogeme.database = self.database
-        self.biogeme.theC.setData(self.biogeme.database.data)
-
-        self.algo = algo(self.biogeme.calculateLikelihood, self.x0, **params)
-
-        return self.algo.solve(maximize=True)
-
     def optimize(self, algo, **kwargs):
 
         self.biogeme.database = self.database

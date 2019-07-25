@@ -9,7 +9,7 @@ from scipy.optimize.optimize import OptimizeResult
 
 from .directions import *
 from .types import *
-from .helpers import back_to_bounds
+from .helpers import back_to_bounds, stop_crit
 
 
 class OptAlg:
@@ -70,7 +70,7 @@ class OptAlg:
 
         # Other parameters in kwargs
         self.nbr_epochs = kwargs.get('nbr_epochs', 20)
-        self.thresh = kwargs.get('thresh', 1.0e-5)
+        self.thresh = kwargs.get('thresh', 1.0e-6)
         self.bounds = kwargs.get('bounds', None)
         self.verbose = kwargs.get('verbose', False)
         self.seed = kwargs.get('seed', -1)
@@ -104,10 +104,12 @@ class OptAlg:
             self.alg_type = TrustRegionABS(**kwargs)
 
         # Change the threshold for optimization, otherwise we have some issues for the convergence
-        if self.dir_str == 'grad':
+        """
+        if self.dir_str == 'grad'  or self.dir_str == 'hybrid':
             self.thresh = 1e-4
-        elif (self.dir_str == 'bfgs' or self.dir_str == 'hybrid') and 'TR' in self.alg_type_str:
+        elif self.dir_str == 'bfgs' and 'TR' in self.alg_type_str:
             self.thresh = 1e-4
+        """
 
     def solve(self, maximize=False):
         """
@@ -157,6 +159,7 @@ class OptAlg:
 
         while self.ep < self.nbr_epochs:
 
+            start = time.time()
             # Get the function, its gradient and the Hessian
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch,
                                                                          self.alg_type.full_size)
@@ -164,7 +167,12 @@ class OptAlg:
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)
 
-            if np.linalg.norm(gk) <= self.thresh:
+            #print(time.time() - start)
+
+            sc = stop_crit(xk, fk, gk)
+
+            #if np.linalg.norm(gk) <= self.thresh:
+            if 0 < sc <= self.thresh:
                 if self.verbose:
                     self._write("Algorithm Optimized!\n")
                     self._write("  x* = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
@@ -183,13 +191,18 @@ class OptAlg:
                 self._write("Epoch {}:\n".format(self.ep))
                 self._write("  xk = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
                 self._write("  f(xk) = {:.3f}\n".format(fk))
+                self._write("  ||gk|| = {:.3E}\n".format(np.linalg.norm(gk)))
+                self._write("  stop_crit = {:.3E}\n".format(sc))
 
             # Get the new value for x_k using either a LineSearch or a TrustRegion algorithm
             xk_new = self.alg_type.update_xk(xk, fk, gk, Bk, f, fprime, self.dir, self.fs)
 
+            start = time.time()
             # Update the hessian; only used by BFGS.
             # Return the same Bk for the other directions
             Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk)
+
+            #print(time.time() - start)
 
             # Make sure xk is still in bounds
             xk = back_to_bounds(xk_new, self.bounds)
