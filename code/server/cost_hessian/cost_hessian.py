@@ -95,7 +95,7 @@ if __name__ == '__main__':
                     tmp_hess.append(np.abs(delta1 - delta2))
 
             # Add the results in the dict
-            print("    Avg time obtained: {:.3E}\n".format(np.mean(tmp_func)))
+            print("    Avg time obtained: {:.3E}".format(np.mean(tmp_func)))
             res['time']['func'].append(tmp_func)
             print("    Avg delta obtained: {:.3E}\n".format(np.mean(tmp_hess)))
             res['time']['hess'].append(tmp_hess)
