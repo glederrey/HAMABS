@@ -13,7 +13,7 @@ class Hybrid(Direction):
 
         self.use_hessian = True
 
-        self.perc = 0.5
+        self.perc = 0.3
 
     def compute_func_and_derivatives(self, mult, batch, full_size):
 

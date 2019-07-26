@@ -103,14 +103,6 @@ class OptAlg:
         elif self.alg_type_str == 'TR-ABS':
             self.alg_type = TrustRegionABS(**kwargs)
 
-        # Change the threshold for optimization, otherwise we have some issues for the convergence
-        """
-        if self.dir_str == 'grad'  or self.dir_str == 'hybrid':
-            self.thresh = 1e-4
-        elif self.dir_str == 'bfgs' and 'TR' in self.alg_type_str:
-            self.thresh = 1e-4
-        """
-
     def solve(self, maximize=False):
         """
         Minimize the objective function f starting from x0.
@@ -159,7 +151,6 @@ class OptAlg:
 
         while self.ep < self.nbr_epochs:
 
-            start = time.time()
             # Get the function, its gradient and the Hessian
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch,
                                                                          self.alg_type.full_size)
@@ -167,11 +158,8 @@ class OptAlg:
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)
 
-            #print(time.time() - start)
-
             sc = stop_crit(xk, fk, gk)
 
-            #if np.linalg.norm(gk) <= self.thresh:
             if 0 < sc <= self.thresh:
                 if self.verbose:
                     self._write("Algorithm Optimized!\n")
@@ -197,12 +185,9 @@ class OptAlg:
             # Get the new value for x_k using either a LineSearch or a TrustRegion algorithm
             xk_new = self.alg_type.update_xk(xk, fk, gk, Bk, f, fprime, self.dir, self.fs)
 
-            start = time.time()
             # Update the hessian; only used by BFGS.
             # Return the same Bk for the other directions
             Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk)
-
-            #print(time.time() - start)
 
             # Make sure xk is still in bounds
             xk = back_to_bounds(xk_new, self.bounds)
