@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/LPMC_DrivingCost
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 24
+#SBATCH --mem 192000
+#SBATCH --time=12:00:00
+
+module load gcc/7.4.0 python/3.6.5
+source ~/pybio/bin/activate
+echo Starting optimization of LPMC_DrivingCost with TR and hess at `date`
+srun python -u TR_hess.py
+echo Finished at `date`
+
