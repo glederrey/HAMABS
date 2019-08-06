@@ -16,9 +16,9 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Train {{model}} with {{type}} and {{direction}}")
+    print("Train {{name}} with {{type}} and {{direction}}")
 
-    model = {{model}}(data_folder)
+    model = {{model}}(data_folder{{additions}})
 
     ioa = OptAlg(alg_type='{{type}}', direction='{{direction}}')
 

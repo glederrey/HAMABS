@@ -93,7 +93,8 @@ class Hybrid(Direction):
     def update_dir(self, batch, full_size):
         # Very simple rule
         if batch >= self.perc*full_size and self.use_hessian:
-            self._write("  Change from Newton step to BFGS!\n")
+            if self.verbose:
+                self._write("  Change from Newton step to BFGS!\n")
 
             self.use_hessian = False
 
