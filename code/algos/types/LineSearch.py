@@ -1,5 +1,5 @@
 from .Type import Type
-from .helpers import ls_wolfe12, line_search
+from .helpers import ls_wolfe12
 
 import numpy as np
 
@@ -22,8 +22,6 @@ class LineSearch(Type):
         gk = fprime(xk)
 
         alpha = ls_wolfe12(f, fprime, xk, direction, gk, fs[-1], old_old_fval)
-
-        #alpha = line_search(f, xk, direction)
 
         return alpha
 

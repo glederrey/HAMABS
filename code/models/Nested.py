@@ -100,6 +100,8 @@ class Nested:
         self.biogeme.database = self.database
         self.biogeme.theC.setData(self.biogeme.database.data)
 
+        kwargs['bounds'] = self.bounds
+
         algo.__prep__(self.x0, self.biogeme, **kwargs)
 
         return algo.solve(maximize=True)

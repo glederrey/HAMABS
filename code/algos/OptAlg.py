@@ -232,6 +232,7 @@ class OptAlg:
                'hess': Bk,
                'nit': self.it,
                'nep': self.ep,
+               'stop_crit': sc,
                'opti_time': self.opti_time}
 
         return OptimizeResult(dct)

@@ -1,5 +1,7 @@
 from .Direction import Direction
 
+from .helpers import back_to_bounds
+
 
 class Gradient(Direction):
 
@@ -14,14 +16,21 @@ class Gradient(Direction):
             self.biogeme.theC.setData(sample)
 
         def grad_hess(x, B):
+            x = back_to_bounds(x, self.bounds)
+
             tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)
 
             ret = [mult*tmp[1], None]
 
             return ret
 
-        fprime = lambda x: mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
-        f = lambda x: mult * self.f(x)
+        def fprime(x):
+            x = back_to_bounds(x, self.bounds)
+            return mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+
+        def f(x):
+            x = back_to_bounds(x, self.bounds)
+            return mult * self.f(x)
 
         return f, fprime, grad_hess
 

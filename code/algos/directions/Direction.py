@@ -7,6 +7,7 @@ class Direction:
         self.biogeme = kwargs.get('biogeme', None)
         self.verbose = kwargs.get('verbose', False)
         self.x0 = kwargs.get('x0', None)
+        self.bounds = kwargs.get('bounds', None)
 
         self.f = lambda x: self.biogeme.calculateLikelihood(x)
 

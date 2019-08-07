@@ -1,5 +1,5 @@
 from .Direction import Direction
-from .helpers import cg
+from .helpers import cg, back_to_bounds
 
 import numpy as np
 
@@ -23,6 +23,7 @@ class Hybrid(Direction):
             self.biogeme.theC.setData(sample)
 
         def grad_hess(x, B):
+            x = back_to_bounds(x, self.bounds)
 
             if self.use_hessian:
                 # Same as Hessian
@@ -41,8 +42,13 @@ class Hybrid(Direction):
 
                 return ret
 
-        fprime = lambda x: mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
-        f = lambda x: mult * self.f(x)
+        def fprime(x):
+            x = back_to_bounds(x, self.bounds)
+            return mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+
+        def f(x):
+            x = back_to_bounds(x, self.bounds)
+            return mult * self.f(x)
 
         return f, fprime, grad_hess
 

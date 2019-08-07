@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def cg(xk, A, b):
     """
     Conjugate gradient taken from the function _minimize_newtoncg in the package scipy.optimize.optimize.
@@ -48,6 +49,7 @@ def cg(xk, A, b):
         dri0 = dri1  # update np.dot(ri,ri) for next time.
 
     return xsupi
+
 
 def back_to_bounds(xk, bounds):
     if bounds is not None:
