@@ -15,7 +15,7 @@ class Hybrid(Direction):
 
         self.perc = 0.3
 
-    def compute_func_and_derivatives(self, mult, batch, full_size):
+    def compute_func_and_derivatives(self, batch, full_size):
 
         if batch != full_size or self.batch_changed:
             # Set the sample for the batch
