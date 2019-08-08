@@ -23,7 +23,7 @@ class OptAlg:
             raise ValueError("Please, give a type of IOA amongst the possible types: " + ' '.join(possible_types))
         self.alg_type_str = alg_type
 
-        possible_directions = ['grad', 'hess', 'bfgs', 'hybrid']
+        possible_directions = ['grad', 'hess', 'bfgs', 'inv-bfgs', 'hybrid']
 
         if direction not in possible_directions:
             raise ValueError("Please, give a direction for the IOA amongst the possible directions: " + ' '.join(
@@ -32,6 +32,12 @@ class OptAlg:
 
         if direction == 'grad' and 'TR' in alg_type:
             raise ValueError("Trust Region does not work with gradient as the direction.")
+
+        if direction == 'hybrid' and 'ABS' not in alg_type:
+            raise ValueError("The Hybrid direction has to be used with an ABS algorithm.")
+
+        if direction == 'inv_bfgs' and 'TR' in alg_type:
+            raise ValueError("The Inverse BFGS update has to be used with a LineSearch algorithm.")
 
         # Initialize some parameters
 
@@ -90,6 +96,8 @@ class OptAlg:
             self.dir = Hessian(**kwargs)
         elif self.dir_str == 'bfgs':
             self.dir = BFGS(**kwargs)
+        elif self.dir_str == 'inv-bfgs':
+            self.dir = INV_BFGS(**kwargs)
         elif self.dir_str == 'hybrid':
             self.dir = Hybrid(**kwargs)
 
