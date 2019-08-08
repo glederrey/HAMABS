@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/LPMC_RemoveRest_big
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 24
+#SBATCH --mem 192000
+#SBATCH --time=24:00:00
+
+module load gcc/7.4.0 python/3.6.5
+source ~/pybio/bin/activate
+echo Starting optimization of LPMC_RemoveRest_big with TR and hybrid_inv at `date`
+srun python -u TR_hybrid_inv.py
+echo Finished at `date`
+

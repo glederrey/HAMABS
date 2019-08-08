@@ -8,7 +8,8 @@ python LS_bfgs.py
 python TR_bfgs.py
 python LS-ABS_bfgs.py
 python TR-ABS_bfgs.py
-python LS_inv-bfgs.py
-python LS-ABS_inv-bfgs.py
+python LS_bfgs-inv.py
+python LS-ABS_bfgs-inv.py
 python LS-ABS_hybrid.py
 python TR-ABS_hybrid.py
+python LS-ABS_hybrid-inv.py

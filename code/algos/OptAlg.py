@@ -23,7 +23,7 @@ class OptAlg:
             raise ValueError("Please, give a type of IOA amongst the possible types: " + ' '.join(possible_types))
         self.alg_type_str = alg_type
 
-        possible_directions = ['grad', 'hess', 'bfgs', 'inv-bfgs', 'hybrid']
+        possible_directions = ['grad', 'hess', 'bfgs', 'bfgs-inv', 'hybrid', 'hybrid-inv']
 
         if direction not in possible_directions:
             raise ValueError("Please, give a direction for the IOA amongst the possible directions: " + ' '.join(
@@ -36,8 +36,11 @@ class OptAlg:
         if direction == 'hybrid' and 'ABS' not in alg_type:
             raise ValueError("The Hybrid direction has to be used with an ABS algorithm.")
 
-        if direction == 'inv_bfgs' and 'TR' in alg_type:
+        if direction == 'bfgs-inv' and 'TR' in alg_type:
             raise ValueError("The Inverse BFGS update has to be used with a LineSearch algorithm.")
+
+        if direction == 'hybrid-inv' and alg_type != 'LS-ABS':
+            raise ValueError("The Hybrid with inverse BFGS can only be used with LS-ABS algorithm.")
 
         # Initialize some parameters
 
@@ -96,10 +99,12 @@ class OptAlg:
             self.dir = Hessian(**kwargs)
         elif self.dir_str == 'bfgs':
             self.dir = BFGS(**kwargs)
-        elif self.dir_str == 'inv-bfgs':
-            self.dir = INV_BFGS(**kwargs)
+        elif self.dir_str == 'bfgs-inv':
+            self.dir = BFGS_INV(**kwargs)
         elif self.dir_str == 'hybrid':
             self.dir = Hybrid(**kwargs)
+        elif self.dir_str == 'hybrid-inv':
+            self.dir = Hybrid_INV(**kwargs)
 
         # Prepare the type
         if self.alg_type_str == 'LS':
@@ -222,15 +227,14 @@ class OptAlg:
 
         if self.verbose and not self.optimized:
 
-            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch, self.alg_type.full_size)
-
-            gk, Bk = grad_hess(xk, Bk)
-
             self._write("Algorithm not fully optimized!\n")
             self._write("  x_n = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
             self._write("  f(x_n) = {:.3f}\n".format(fk))
 
         self.opti_time = time.clock() - start_time
+
+        # Compute the function value, the gradient and the Hessian one last time.
+        fk, gk, Bk = self.dir.compute_final_LL_and_derivatives(xk)
 
         dct = {'x': xk,
                'success': self.optimized,

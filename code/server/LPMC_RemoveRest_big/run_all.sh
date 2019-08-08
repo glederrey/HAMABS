@@ -8,7 +8,8 @@ sbatch LS_bfgs.run
 sbatch TR_bfgs.run
 sbatch LS-ABS_bfgs.run
 sbatch TR-ABS_bfgs.run
-sbatch LS_inv-bfgs.run
-sbatch LS-ABS_inv-bfgs.run
+sbatch LS_bfgs-inv.run
+sbatch LS-ABS_bfgs-inv.run
 sbatch LS-ABS_hybrid.run
 sbatch TR-ABS_hybrid.run
+sbatch LS-ABS_hybrid-inv.run
