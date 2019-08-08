@@ -12,3 +12,8 @@ Also make sure that all modulefiles written in TCL start with the string
 
 Starting optimization of LPMC_Full_big with LS-ABS and hess at jeu aoû 8 14:07:22 CEST 2019
 Train LPMC_Full_big with LS-ABS and hess
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 174828.0 ON h256 CANCELLED AT 2019-08-08T15:04:33 ***
+srun: error: h256: task 0: Killed
+srun: Terminating job step 174828.0
+Finished at jeu aoû 8 15:04:33 CEST 2019
