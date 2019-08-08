@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 
 class Direction:
 
@@ -8,10 +9,25 @@ class Direction:
         self.verbose = kwargs.get('verbose', False)
         self.x0 = kwargs.get('x0', None)
         self.bounds = kwargs.get('bounds', None)
+        self.scale = kwargs.get('scale', False)
 
         self.f = lambda x: self.biogeme.calculateLikelihood(x)
 
         self.batch_changed = False
+
+        self.mult = 1
+
+    def prep_mult_factor(self, maximize):
+
+        self.mult = 1
+
+        # Inverse the value of the function, the gradient, and the hessian
+        if maximize:
+            self.mult = -1
+
+        # Scale the value of the function, the gradient, and the hessian, based on the init log likelihood.
+        if self.scale:
+            self.mult = self.mult/np.abs(self.biogeme.calculateInitLikelihood()) * 100.0
 
     def compute_full_f(self, x):
         # Set the full data

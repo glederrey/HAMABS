@@ -20,17 +20,17 @@ class Gradient(Direction):
 
             tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)
 
-            ret = [mult*tmp[1], None]
+            ret = [self.mult*tmp[1], None]
 
             return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return mult * self.f(x)
+            return self.mult * self.f(x)
 
         return f, fprime, grad_hess
 

@@ -8,7 +8,7 @@
 
 module load gcc/7.4.0 python/3.7.3
 source ~/pybio/bin/activate
-echo Starting optimization of {{name}} with {{type}} and {{direction}} at `date`
+echo Starting optimization of {{name}} with {{algo_name}} at `date`
 srun python -u {{filename}}.py
 echo Finished at `date`
 

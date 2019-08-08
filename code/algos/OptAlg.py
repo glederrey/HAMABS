@@ -144,16 +144,14 @@ class OptAlg:
         self.fs_full = []
         self.batches = []
 
-        if maximize:
-            self.mult = -1
-        else:
-            self.mult = 1
-
         if self.seed != -1:
             np.random.seed(self.seed)
 
         self.ep = 0
         self.it = 0
+
+        # Initialize the multiplicative factor for the direction
+        self.dir.prep_mult_factor(maximize)
 
         # Initialize the algorithm
         self.alg_type.init_solve()
@@ -165,8 +163,7 @@ class OptAlg:
         while self.ep < self.nbr_epochs:
 
             # Get the function, its gradient and the Hessian
-            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.mult, self.alg_type.batch,
-                                                                         self.alg_type.full_size)
+            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, self.alg_type.full_size)
 
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)
