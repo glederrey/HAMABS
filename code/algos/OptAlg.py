@@ -170,6 +170,8 @@ class OptAlg:
 
             sc = stop_crit(xk, fk, gk)
 
+            print(sc)
+
             if 0 < sc <= self.thresh:
                 if self.verbose:
                     self._write("Algorithm Optimized!\n")

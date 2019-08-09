@@ -21,4 +21,6 @@ def stop_crit(xs, f, grad):
 
     vals = [np.abs(x*df) for x, df in zip(xs, grad)]
 
+    print(np.abs(f))
+
     return np.max(vals)/f
