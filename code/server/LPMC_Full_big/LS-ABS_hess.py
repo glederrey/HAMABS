@@ -34,7 +34,7 @@ if __name__ == "__main__":
         res['LL'].append(tmp['fun'])
         res['epochs'].append(tmp['nep'])
 
-        with open('results/LS-ABS_hess2.json', 'w') as outfile:
+        with open('results/LS-ABS_hess.json', 'w') as outfile:
             json.dump(res, outfile)
 
         print("{}/20 done!".format(i+1))
