@@ -122,7 +122,7 @@ class OptAlg:
 
         :return: x: the optimized parameters
         """
-        start_time = time.clock()
+        start_time = time.time()
 
         if self.verbose:
             if maximize:
@@ -228,7 +228,7 @@ class OptAlg:
             self._write("  x_n = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
             self._write("  f(x_n) = {:.3f}\n".format(fk))
 
-        self.opti_time = time.clock() - start_time
+        self.opti_time = time.time() - start_time
 
         # Compute the function value, the gradient and the Hessian one last time.
         fk, gk, Bk = self.dir.compute_final_LL_and_derivatives(xk)
