@@ -1,0 +1,20 @@
+Optimizing LPMC_Full_big with best algo at ven aoû 9 18:54:48 CEST 2019
+Train LPMC_Full_big with LS-ABS and hybrid-inv
+Traceback (most recent call last):
+  File "stop_crit.py", line 41, in <module>
+    res = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 100})
+  File "../../models/LPMC_Full.py", line 813, in optimize
+    return algo.solve(maximize=True)
+  File "../../algos/OptAlg.py", line 168, in solve
+    fk = f(xk)
+  File "../../algos/directions/Hybrid_INV.py", line 58, in f
+    return self.mult * self.f(x)
+  File "../../algos/directions/Direction.py", line 14, in <lambda>
+    self.f = lambda x: self.biogeme.calculateLikelihood(x)
+  File "/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py", line 250, in calculateLikelihood
+    f = self.theC.calculateLikelihood(x,self.fixedBetaValues)
+  File "src/cbiogeme.pyx", line 93, in biogeme.cbiogeme.pyBiogeme.calculateLikelihood
+RuntimeError: src/biogeme.cc:296: Biogeme exception: Error for data entry 102 : src/bioExprLiteral.cc:116: Biogeme exception: tmode: 102 out of range [0,99]
+srun: error: h255: task 0: Exited with exit code 1
+srun: Terminating job step 176355.0
+Finished at ven aoû 9 18:55:40 CEST 2019
