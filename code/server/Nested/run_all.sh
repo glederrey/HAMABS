@@ -13,4 +13,4 @@ python LS-ABS_bfgs-inv.py
 python LS-ABS_hybrid.py
 python TR-ABS_hybrid.py
 python LS-ABS_hybrid-inv.py
-python biogeme.py
+python biogeme_bfgs.py

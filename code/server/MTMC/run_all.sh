@@ -13,4 +13,4 @@ sbatch LS-ABS_bfgs-inv.run
 sbatch LS-ABS_hybrid.run
 sbatch TR-ABS_hybrid.run
 sbatch LS-ABS_hybrid-inv.run
-sbatch biogeme.run
+sbatch biogeme_bfgs.run
