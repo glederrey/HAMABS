@@ -1,0 +1,6 @@
+Starting optimization of LPMC_Nested_Full_S with LS-ABS and hess at lun aoû 12 14:26:52 CEST 2019
+Train LPMC_Nested_Full_S with LS-ABS and hess
+1/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 177730 ON h277 CANCELLED AT 2019-08-12T18:46:56 ***
+slurmstepd: error: *** STEP 177730.0 ON h277 CANCELLED AT 2019-08-12T18:46:56 ***

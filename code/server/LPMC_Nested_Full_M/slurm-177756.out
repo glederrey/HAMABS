@@ -1,0 +1,236 @@
+Starting optimization of LPMC_Nested_Full_M with LS-ABS and hybrid-inv at lun aoû 12 14:27:52 CEST 2019
+Train LPMC_Nested_Full_M with LS-ABS and hybrid-inv
+/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py:313: LineSearchWarning: The line search algorithm did not converge
+  warn('The line search algorithm did not converge', LineSearchWarning)
+Traceback (most recent call last):
+  File "LS-ABS_hybrid-inv.py", line 30, in <module>
+    tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+  File "../../models/LPMC_Nested_Full.py", line 826, in optimize
+    return algo.solve(maximize=True)
+  File "../../algos/OptAlg.py", line 215, in solve
+    xk_new = self.alg_type.update_xk(xk, fk, gk, Bk, f, fprime, self.dir, self.fs)
+  File "../../algos/types/LineSearch.py", line 34, in update_xk
+    alpha = self.compute_alpha(f, fprime, xk, direction, fs)
+  File "../../algos/types/LineSearch.py", line 24, in compute_alpha
+    alpha = ls_wolfe12(f, fprime, xk, direction, gk, fs[-1], old_old_fval)
+  File "../../algos/types/helpers.py", line 29, in ls_wolfe12
+    ret = line_search_armijo(f, xk, pk, gfk, old_fval)
+  File "/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py", line 654, in line_search_armijo
+    alpha0=alpha0)
+  File "/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py", line 681, in scalar_search_armijo
+    phi_a0 = phi(alpha0)
+  File "/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py", line 645, in phi
+    return f(xk + alpha1*pk, *args)
+  File "../../algos/directions/Hybrid_INV.py", line 59, in f
+    return self.mult * self.f(x)
+  File "../../algos/directions/Direction.py", line 15, in <lambda>
+    self.f = lambda x: self.biogeme.calculateLikelihood(x)
+  File "/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py", line 250, in calculateLikelihood
+    f = self.theC.calculateLikelihood(x,self.fixedBetaValues)
+  File "src/cbiogeme.pyx", line 93, in biogeme.cbiogeme.pyBiogeme.calculateLikelihood
+RuntimeError: src/biogeme.cc:296: Biogeme exception: Error for data entry 0 : src/bioExprLog.cc:51: Biogeme exception: Current values of the literals: 
+ASC_TRANSIT_CO = 55.6122
+ASC_TRANSIT_NCO = -100
+ASC_WALKING_CO1_DL0 = 0
+ASC_WALKING_CO1_DL1 = 0
+ASC_WALKING_CO2_DL0 = 0
+ASC_WALKING_CO2_DL1 = 0
+ASC_WALKING_NCO_DL0 = 0
+ASC_WALKING_NCO_DL1 = 0
+B_ADULT_TRANSIT_CO1_DL0 = 0
+B_ADULT_TRANSIT_CO1_DL1 = 10
+B_ADULT_TRANSIT_CO2_DL0 = 0
+B_ADULT_TRANSIT_CO2_DL1 = 0
+B_ADULT_TRANSIT_NCO = 10
+B_ADULT_WALKING_CO1_DL0 = 0
+B_ADULT_WALKING_CO1_DL1 = 0
+B_ADULT_WALKING_CO2_DL0 = 0
+B_ADULT_WALKING_CO2_DL1 = 0
+B_ADULT_WALKING_NCO_DL0 = 0
+B_ADULT_WALKING_NCO_DL1 = 0
+B_CADULT_TRANSIT_CO1_DL0 = 0
+B_CADULT_TRANSIT_CO1_DL1 = 0
+B_CADULT_TRANSIT_CO2_DL0 = 0
+B_CADULT_TRANSIT_CO2_DL1 = 0
+B_CADULT_TRANSIT_NCO_DL0 = 10
+B_CADULT_TRANSIT_NCO_DL1 = 10
+B_CADULT_WALKING_CO1_DL0 = 0
+B_CADULT_WALKING_CO1_DL1 = 0
+B_CADULT_WALKING_CO2_DL0 = 0
+B_CADULT_WALKING_CO2_DL1 = 0
+B_CADULT_WALKING_NCO_DL0 = 0
+B_CADULT_WALKING_NCO_DL1 = 0
+B_CHILD_TRANSIT_CO1_DL0 = 10
+B_CHILD_TRANSIT_CO1_DL1 = 0
+B_CHILD_TRANSIT_CO2_DL0 = 0
+B_CHILD_TRANSIT_CO2_DL1 = 0
+B_CHILD_TRANSIT_NCO_DL0 = 0
+B_CHILD_TRANSIT_NCO_DL1 = 0
+B_CHILD_WALKING_CO1_DL0 = 0
+B_CHILD_WALKING_CO1_DL1 = 0
+B_CHILD_WALKING_CO2_DL0 = 0
+B_CHILD_WALKING_CO2_DL1 = 0
+B_CHILD_WALKING_NCO_DL0 = 0
+B_CHILD_WALKING_NCO_DL1 = 0
+B_COST_TRANSIT_CO1_DL0 = 0
+B_COST_TRANSIT_CO1_DL1 = 0
+B_COST_TRANSIT_CO2_DL0 = 0
+B_COST_TRANSIT_CO2_DL1 = 0
+B_COST_TRANSIT_NCO = 10
+B_DISTANCE_TRANSIT_CO_DL0 = -10
+B_DISTANCE_TRANSIT_DL1 = -10
+B_DISTANCE_TRANSIT_NCO_DL0 = -10
+B_DISTANCE_WALKING_CO1_DL0 = 0
+B_DISTANCE_WALKING_CO1_DL1 = 0
+B_DISTANCE_WALKING_CO2_DL0 = 0
+B_DISTANCE_WALKING_CO2_DL1 = 0
+B_DISTANCE_WALKING_NCO_DL0 = 0
+B_DISTANCE_WALKING_NCO_DL1 = 0
+B_FEMALE_TRANSIT_DL0 = -10
+B_FEMALE_TRANSIT_DL1 = -10
+B_FEMALE_WALKING_CO1_DL0 = 0
+B_FEMALE_WALKING_CO1_DL1 = 0
+B_FEMALE_WALKING_CO2_DL0 = 0
+B_FEMALE_WALKING_CO2_DL1 = 0
+B_FEMALE_WALKING_NCO_DL0 = 0
+B_FEMALE_WALKING_NCO_DL1 = 0
+B_INTER_PEAK_WALKING_CO1_DL0 = 0
+B_INTER_PEAK_WALKING_CO1_DL1 = 0
+B_INTER_PEAK_WALKING_CO2_DL0 = 0
+B_INTER_PEAK_WALKING_CO2_DL1 = 0
+B_INTER_PEAK_WALKING_NCO_DL0 = 0
+B_INTER_PEAK_WALKING_NCO_DL1 = 0
+B_LOGDISTANCE_TRANSIT_CO = 10
+B_LOGDISTANCE_TRANSIT_NCO = 10
+B_LOGDISTANCE_WALKING_CO1_DL0 = 0
+B_LOGDISTANCE_WALKING_CO1_DL1 = 0
+B_LOGDISTANCE_WALKING_CO2_DL0 = 0
+B_LOGDISTANCE_WALKING_CO2_DL1 = 0
+B_LOGDISTANCE_WALKING_NCO_DL0 = 0
+B_LOGDISTANCE_WALKING_NCO_DL1 = 0
+B_PM_PEAK_TRANSIT_CO = -10
+B_PM_PEAK_TRANSIT_NCO_DL0 = 0
+B_PM_PEAK_TRANSIT_NCO_DL1 = 0
+B_PM_PEAK_WALKING_CO1_DL0 = 0
+B_PM_PEAK_WALKING_CO1_DL1 = 0
+B_PM_PEAK_WALKING_CO2_DL0 = 0
+B_PM_PEAK_WALKING_CO2_DL1 = 0
+B_PM_PEAK_WALKING_NCO_DL0 = 0
+B_PM_PEAK_WALKING_NCO_DL1 = 0
+B_PURPOSE_B_TRANSIT_CO_DL0 = -10
+B_PURPOSE_B_TRANSIT_CO_DL1 = -10
+B_PURPOSE_B_TRANSIT_NCO_DL0 = 0
+B_PURPOSE_B_TRANSIT_NCO_DL1 = 0
+B_PURPOSE_B_WALKING_CO1_DL0 = 0
+B_PURPOSE_B_WALKING_CO1_DL1 = 0
+B_PURPOSE_B_WALKING_CO2_DL0 = 0
+B_PURPOSE_B_WALKING_CO2_DL1 = 0
+B_PURPOSE_B_WALKING_NCO_DL0 = 0
+B_PURPOSE_B_WALKING_NCO_DL1 = 0
+B_PURPOSE_HBE_TRANSIT_CO2_DL1 = 10
+B_PURPOSE_HBE_TRANSIT_DL0 = -10
+B_PURPOSE_HBE_TRANSIT_NCO1_DL1 = 0
+B_PURPOSE_HBE_WALKING_CO1_DL0 = 0
+B_PURPOSE_HBE_WALKING_CO1_DL1 = 0
+B_PURPOSE_HBE_WALKING_CO2_DL0 = 0
+B_PURPOSE_HBE_WALKING_CO2_DL1 = 0
+B_PURPOSE_HBE_WALKING_NCO_DL0 = 0
+B_PURPOSE_HBE_WALKING_NCO_DL1 = 0
+B_PURPOSE_HBO_TRANSIT_CO1_DL0 = 0
+B_PURPOSE_HBO_TRANSIT_CO1_DL1 = 0
+B_PURPOSE_HBO_TRANSIT_CO2_DL0 = 0
+B_PURPOSE_HBO_TRANSIT_CO2_DL1 = 0
+B_PURPOSE_HBO_TRANSIT_NCO_DL0 = -10
+B_PURPOSE_HBO_TRANSIT_NCO_DL1 = 0
+B_PURPOSE_HBO_WALKING_CO1_DL0 = 0
+B_PURPOSE_HBO_WALKING_CO1_DL1 = 0
+B_PURPOSE_HBO_WALKING_CO2_DL0 = 0
+B_PURPOSE_HBO_WALKING_CO2_DL1 = 0
+B_PURPOSE_HBO_WALKING_NCO_DL0 = 0
+B_PURPOSE_HBO_WALKING_NCO_DL1 = 0
+B_PURPOSE_HBW_TRANSIT_CO1_DL0 = 0
+B_PURPOSE_HBW_TRANSIT_CO1_DL1 = 0
+B_PURPOSE_HBW_TRANSIT_CO2_DL0 = -10
+B_PURPOSE_HBW_TRANSIT_CO2_DL1 = -10
+B_PURPOSE_HBW_TRANSIT_NCO_DL0 = 0
+B_PURPOSE_HBW_TRANSIT_NCO_DL1 = 0
+B_PURPOSE_HBW_WALKING_CO1_DL0 = 0
+B_PURPOSE_HBW_WALKING_CO1_DL1 = 0
+B_PURPOSE_HBW_WALKING_CO2_DL0 = 0
+B_PURPOSE_HBW_WALKING_CO2_DL1 = 0
+B_PURPOSE_HBW_WALKING_NCO_DL0 = 0
+B_PURPOSE_HBW_WALKING_NCO_DL1 = 0
+B_SATURDAY_TRANSIT_CO = -10
+B_SATURDAY_TRANSIT_NCO_DL0 = 0
+B_SATURDAY_TRANSIT_NCO_DL1 = 0
+B_SATURDAY_WALKING_CO1_DL0 = 0
+B_SATURDAY_WALKING_CO1_DL1 = 0
+B_SATURDAY_WALKING_CO2_DL0 = 0
+B_SATURDAY_WALKING_CO2_DL1 = 0
+B_SATURDAY_WALKING_NCO_DL0 = 0
+B_SATURDAY_WALKING_NCO_DL1 = 0
+B_TIME_ACCESS_CO = 10
+B_TIME_ACCESS_NCO_DL0 = -10
+B_TIME_ACCESS_NCO_DL1 = -10
+B_TIME_BUS_CO2_DL0 = 10
+B_TIME_BUS_CO2_DL1 = 10
+B_TIME_BUS_NCO1_DL0 = 10
+B_TIME_BUS_NCO1_DL1 = 10
+B_TIME_INT_WAIT_CO = 10
+B_TIME_INT_WAIT_NCO = -10
+B_TIME_INT_WALK_CO1 = 10
+B_TIME_INT_WALK_CO2_DL0 = 0
+B_TIME_INT_WALK_CO2_DL1 = 0
+B_TIME_INT_WALK_NCO_DL0 = 0
+B_TIME_INT_WALK_NCO_DL1 = 0
+B_TIME_RAIL = 10
+B_TIME_WALKING_DL0 = 10
+B_TIME_WALKING_DL1 = 10
+B_WEEKDAY_TRANSIT_CO = -10
+B_WEEKDAY_TRANSIT_NCO_DL0 = 0
+B_WEEKDAY_TRANSIT_NCO_DL1 = 0
+B_WEEKDAY_WALKING_CO1_DL0 = 0
+B_WEEKDAY_WALKING_CO1_DL1 = 0
+B_WEEKDAY_WALKING_CO2_DL0 = 0
+B_WEEKDAY_WALKING_CO2_DL1 = 0
+B_WEEKDAY_WALKING_NCO_DL0 = 0
+B_WEEKDAY_WALKING_NCO_DL1 = 0
+B_WINTER_WALKING_CO1_DL0 = 0
+B_WINTER_WALKING_CO1_DL1 = 0
+B_WINTER_WALKING_CO2_DL0 = 0
+B_WINTER_WALKING_CO2_DL1 = 0
+B_WINTER_WALKING_NCO_DL0 = 0
+B_WINTER_WALKING_NCO_DL1 = 0
+MU_WALKTRANSIT = 10
+co0 = 1
+co1 = 0
+co2 = 0
+cost_transit = 1.5
+dl0 = 1
+dl1 = 0
+dur_access = 0.123889
+dur_interchange_waiting = 0
+dur_interchange_walking = 0
+dur_pt_bus = 0.465833
+dur_pt_rail = 0
+dur_walking = 1.94972
+female = 1
+purpose_B = 0
+purpose_HBE = 0
+purpose_HBO = 1
+purpose_HBW = 0
+self.adult = 1
+self.cadult = 1
+self.child = 0
+self.distance_km = 8.94339
+self.interpeak = 1
+self.logdistance = 9.09867
+self.pmpeak = 1
+self.saturday = 0
+self.weekday = 1
+self.winter = 0
+Cannot take the log of a negative number <log(Elem[1](0:0;1:((exp(((((((((((((((((((((((((ASC_TRANSIT_NCO[4] <0>*dl0[363] <0>)+(ASC_TRANSIT_NCO[4] <0>*dl1[364] <0>))*co0[350] <0>)+(((ASC_TRANSIT_CO[3] <0>*dl0[363] <0>)+(ASC_TRANSIT_CO[3] <0>*dl1[364] <0>))*co1[351] <0>))+(((ASC_TRANSIT_CO[3] <0>*dl0[363] <0>)+(ASC_TRANSIT_CO[3] <0>*dl1[364] <0>))*co2[352] <0>))+((((((B_COST_TRANSIT_NCO[26] <0>*dl0[363] <0>)+(B_COST_TRANSIT_NCO[26] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_COST_TRANSIT_CO1_DL0[157] <0>*dl0[363] <0>)+(B_COST_TRANSIT_CO1_DL1[158] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_COST_TRANSIT_CO2_DL0[159] <0>*dl0[363] <0>)+(B_COST_TRANSIT_CO2_DL1[160] <0>*dl1[364] <0>))*co2[352] <0>))*cost_transit[310] <0>))+((((((B_TIME_ACCESS_NCO_DL0[75] <0>*dl0[363] <0>)+(B_TIME_ACCESS_NCO_DL1[76] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_ACCESS_CO[74] <0>*dl0[363] <0>)+(B_TIME_ACCESS_CO[74] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_ACCESS_CO[74] <0>*dl0[363] <0>)+(B_TIME_ACCESS_CO[74] <0>*dl1[364] <0>))*co2[352] <0>))*dur_access[320] <0>))+((((((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co2[352] <0>))*dur_pt_rail[323] <0>))+((((((B_TIME_BUS_NCO1_DL0[79] <0>*dl0[363] <0>)+(B_TIME_BUS_NCO1_DL1[80] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_BUS_NCO1_DL0[79] <0>*dl0[363] <0>)+(B_TIME_BUS_NCO1_DL1[80] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_BUS_CO2_DL0[77] <0>*dl0[363] <0>)+(B_TIME_BUS_CO2_DL1[78] <0>*dl1[364] <0>))*co2[352] <0>))*dur_pt_bus[324] <0>))+((((((B_TIME_INT_WAIT_NCO[87] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_NCO[87] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_INT_WAIT_CO[86] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_CO[86] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_INT_WAIT_CO[86] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_CO[86] <0>*dl1[364] <0>))*co2[352] <0>))*dur_interchange_waiting[321] <0>))+((((((B_TIME_INT_WALK_NCO_DL0[276] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_NCO_DL1[277] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_INT_WALK_CO1[88] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_CO1[88] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_INT_WALK_CO2_DL0[274] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_CO2_DL1[275] <0>*dl1[364] <0>))*co2[352] <0>))*dur_interchange_walking[322] <0>))+((((((B_PURPOSE_B_TRANSIT_NCO_DL0[209] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_NCO_DL1[210] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_B_TRANSIT_CO_DL0[55] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_CO_DL1[56] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_B_TRANSIT_CO_DL0[55] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_CO_DL1[56] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_B[342] <0>))+((((((B_PURPOSE_HBW_TRANSIT_NCO_DL0[248] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_NCO_DL1[249] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBW_TRANSIT_CO1_DL0[246] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_CO1_DL1[247] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBW_TRANSIT_CO2_DL0[70] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_CO2_DL1[71] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBW[328] <0>))+((((((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_NCO1_DL1[218] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_NCO1_DL1[218] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_CO2_DL1[60] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBE[326] <0>))+((((((B_PURPOSE_HBO_TRANSIT_NCO_DL0[64] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_NCO_DL1[236] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBO_TRANSIT_CO1_DL0[232] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_CO1_DL1[233] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBO_TRANSIT_CO2_DL0[234] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_CO2_DL1[235] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBO[327] <0>))+((((((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co2[352] <0>))*female[318] <0>))+((((((B_CHILD_TRANSIT_NCO_DL0[143] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_NCO_DL1[144] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CHILD_TRANSIT_CO1_DL0[22] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_CO1_DL1[140] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CHILD_TRANSIT_CO2_DL0[141] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_CO2_DL1[142] <0>*dl1[364] <0>))*co2[352] <0>))*self.child[355] <0>))+((((((B_CADULT_TRANSIT_NCO_DL0[16] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_NCO_DL1[17] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CADULT_TRANSIT_CO1_DL0[122] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_CO1_DL1[123] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CADULT_TRANSIT_CO2_DL0[124] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_CO2_DL1[125] <0>*dl1[364] <0>))*co2[352] <0>))*self.cadult[356] <0>))+((((((B_ADULT_TRANSIT_NCO[10] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_NCO[10] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_ADULT_TRANSIT_CO1_DL0[112] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_CO1_DL1[9] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_ADULT_TRANSIT_CO2_DL0[113] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_CO2_DL1[114] <0>*dl1[364] <0>))*co2[352] <0>))*self.adult[357] <0>))+((((((B_WEEKDAY_TRANSIT_NCO_DL0[280] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_NCO_DL1[281] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_WEEKDAY_TRANSIT_CO[97] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_CO[97] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_WEEKDAY_TRANSIT_CO[97] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_CO[97] <0>*dl1[364] <0>))*co2[352] <0>))*self.weekday[353] <0>))+((((((B_SATURDAY_TRANSIT_NCO_DL0[261] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_NCO_DL1[262] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_SATURDAY_TRANSIT_CO[73] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_CO[73] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_SATURDAY_TRANSIT_CO[73] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_CO[73] <0>*dl1[364] <0>))*co2[352] <0>))*self.saturday[354] <0>))+((((((B_PM_PEAK_TRANSIT_NCO_DL0[197] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_NCO_DL1[198] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PM_PEAK_TRANSIT_CO[52] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_CO[52] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PM_PEAK_TRANSIT_CO[52] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_CO[52] <0>*dl1[364] <0>))*co2[352] <0>))*self.pmpeak[359] <0>))+((((((B_DISTANCE_TRANSIT_NCO_DL0[35] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_DISTANCE_TRANSIT_CO_DL0[33] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_DISTANCE_TRANSIT_CO_DL0[33] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co2[352] <0>))*self.distance_km[361] <0>))+((((((B_LOGDISTANCE_TRANSIT_NCO[48] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_NCO[48] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl1[364] <0>))*co2[352] <0>))*self.logdistance[362] <0>)))^(MU_WALKTRANSIT[100] <0>-1))*((Elem[1](0:0;1:(exp((((((((((((((((((((((ASC_WALKING_NCO_DL0[105] <0>*dl0[363] <0>)+(ASC_WALKING_NCO_DL1[106] <0>*dl1[364] <0>))*co0[350] <0>)+(((ASC_WALKING_CO1_DL0[101] <0>*dl0[363] <0>)+(ASC_WALKING_CO1_DL1[102] <0>*dl1[364] <0>))*co1[351] <0>))+(((ASC_WALKING_CO2_DL0[103] <0>*dl0[363] <0>)+(ASC_WALKING_CO2_DL1[104] <0>*dl1[364] <0>))*co2[352] <0>))+((((((B_TIME_WALKING_DL0[90] <0>*dl0[363] <0>)+(B_TIME_WALKING_DL1[91] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_WALKING_DL0[90] <0>*dl0[363] <0>)+(B_TIME_WALKING_DL1[91] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_WALKING_DL0[90] <0>*dl0[363] <0>)+(B_TIME_WALKING_DL1[91] <0>*dl1[364] <0>))*co2[352] <0>))*dur_walking[306] <0>))+((((((B_PURPOSE_B_WALKING_NCO_DL0[215] <0>*dl0[363] <0>)+(B_PURPOSE_B_WALKING_NCO_DL1[216] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_B_WALKING_CO1_DL0[211] <0>*dl0[363] <0>)+(B_PURPOSE_B_WALKING_CO1_DL1[212] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_B_WALKING_CO2_DL0[213] <0>*dl0[363] <0>)+(B_PURPOSE_B_WALKING_CO2_DL1[214] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_B[342] <0>))+((((((B_PURPOSE_HBW_WALKING_NCO_DL0[254] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_WALKING_NCO_DL1[255] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBW_WALKING_CO1_DL0[250] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_WALKING_CO1_DL1[251] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBW_WALKING_CO2_DL0[252] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_WALKING_CO2_DL1[253] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBW[328] <0>))+((((((B_PURPOSE_HBE_WALKING_NCO_DL0[223] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_WALKING_NCO_DL1[224] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBE_WALKING_CO1_DL0[219] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_WALKING_CO1_DL1[220] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBE_WALKING_CO2_DL0[221] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_WALKING_CO2_DL1[222] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBE[326] <0>))+((((((B_PURPOSE_HBO_WALKING_NCO_DL0[241] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_WALKING_NCO_DL1[242] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBO_WALKING_CO1_DL0[237] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_WALKING_CO1_DL1[238] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBO_WALKING_CO2_DL0[239] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_WALKING_CO2_DL1[240] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBO[327] <0>))+((((((B_FEMALE_WALKING_NCO_DL0[173] <0>*dl0[363] <0>)+(B_FEMALE_WALKING_NCO_DL1[174] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_FEMALE_WALKING_CO1_DL0[169] <0>*dl0[363] <0>)+(B_FEMALE_WALKING_CO1_DL1[170] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_FEMALE_WALKING_CO2_DL0[171] <0>*dl0[363] <0>)+(B_FEMALE_WALKING_CO2_DL1[172] <0>*dl1[364] <0>))*co2[352] <0>))*female[318] <0>))+((((((B_WINTER_WALKING_NCO_DL0[297] <0>*dl0[363] <0>)+(B_WINTER_WALKING_NCO_DL1[298] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_WINTER_WALKING_CO1_DL0[293] <0>*dl0[363] <0>)+(B_WINTER_WALKING_CO1_DL1[294] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_WINTER_WALKING_CO2_DL0[295] <0>*dl0[363] <0>)+(B_WINTER_WALKING_CO2_DL1[296] <0>*dl1[364] <0>))*co2[352] <0>))*self.winter[358] <0>))+((((((B_CHILD_WALKING_NCO_DL0[149] <0>*dl0[363] <0>)+(B_CHILD_WALKING_NCO_DL1[150] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CHILD_WALKING_CO1_DL0[145] <0>*dl0[363] <0>)+(B_CHILD_WALKING_CO1_DL1[146] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CHILD_WALKING_CO2_DL0[147] <0>*dl0[363] <0>)+(B_CHILD_WALKING_CO2_DL1[148] <0>*dl1[364] <0>))*co2[352] <0>))*self.child[355] <0>))+((((((B_CADULT_WALKING_NCO_DL0[130] <0>*dl0[363] <0>)+(B_CADULT_WALKING_NCO_DL1[131] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CADULT_WALKING_CO1_DL0[126] <0>*dl0[363] <0>)+(B_CADULT_WALKING_CO1_DL1[127] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CADULT_WALKING_CO2_DL0[128] <0>*dl0[363] <0>)+(B_CADULT_WALKING_CO2_DL1[129] <0>*dl1[364] <0>))*co2[352] <0>))*self.cadult[356] <0>))+((((((B_ADULT_WALKING_NCO_DL0[119] <0>*dl0[363] <0>)+(B_ADULT_WALKING_NCO_DL1[120] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_ADULT_WALKING_CO1_DL0[115] <0>*dl0[363] <0>)+(B_ADULT_WALKING_CO1_DL1[116] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_ADULT_WALKING_CO2_DL0[117] <0>*dl0[363] <0>)+(B_ADULT_WALKING_CO2_DL1[118] <0>*dl1[364] <0>))*co2[352] <0>))*self.adult[357] <0>))+((((((B_WEEKDAY_WALKING_NCO_DL0[286] <0>*dl0[363] <0>)+(B_WEEKDAY_WALKING_NCO_DL1[287] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_WEEKDAY_WALKING_CO1_DL0[282] <0>*dl0[363] <0>)+(B_WEEKDAY_WALKING_CO1_DL1[283] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_WEEKDAY_WALKING_CO2_DL0[284] <0>*dl0[363] <0>)+(B_WEEKDAY_WALKING_CO2_DL1[285] <0>*dl1[364] <0>))*co2[352] <0>))*self.weekday[353] <0>))+((((((B_SATURDAY_WALKING_NCO_DL0[267] <0>*dl0[363] <0>)+(B_SATURDAY_WALKING_NCO_DL1[268] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_SATURDAY_WALKING_CO1_DL0[263] <0>*dl0[363] <0>)+(B_SATURDAY_WALKING_CO1_DL1[264] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_SATURDAY_WALKING_CO2_DL0[265] <0>*dl0[363] <0>)+(B_SATURDAY_WALKING_CO2_DL1[266] <0>*dl1[364] <0>))*co2[352] <0>))*self.saturday[354] <0>))+((((((B_INTER_PEAK_WALKING_NCO_DL0[187] <0>*dl0[363] <0>)+(B_INTER_PEAK_WALKING_NCO_DL1[188] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_INTER_PEAK_WALKING_CO1_DL0[183] <0>*dl0[363] <0>)+(B_INTER_PEAK_WALKING_CO1_DL1[184] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_INTER_PEAK_WALKING_CO2_DL0[185] <0>*dl0[363] <0>)+(B_INTER_PEAK_WALKING_CO2_DL1[186] <0>*dl1[364] <0>))*co2[352] <0>))*self.interpeak[360] <0>))+((((((B_PM_PEAK_WALKING_NCO_DL0[203] <0>*dl0[363] <0>)+(B_PM_PEAK_WALKING_NCO_DL1[204] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PM_PEAK_WALKING_CO1_DL0[199] <0>*dl0[363] <0>)+(B_PM_PEAK_WALKING_CO1_DL1[200] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PM_PEAK_WALKING_CO2_DL0[201] <0>*dl0[363] <0>)+(B_PM_PEAK_WALKING_CO2_DL1[202] <0>*dl1[364] <0>))*co2[352] <0>))*self.pmpeak[359] <0>))+((((((B_DISTANCE_WALKING_NCO_DL0[165] <0>*dl0[363] <0>)+(B_DISTANCE_WALKING_NCO_DL1[166] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_DISTANCE_WALKING_CO1_DL0[161] <0>*dl0[363] <0>)+(B_DISTANCE_WALKING_CO1_DL1[162] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_DISTANCE_WALKING_CO2_DL0[163] <0>*dl0[363] <0>)+(B_DISTANCE_WALKING_CO2_DL1[164] <0>*dl1[364] <0>))*co2[352] <0>))*self.distance_km[361] <0>))+((((((B_LOGDISTANCE_WALKING_NCO_DL0[193] <0>*dl0[363] <0>)+(B_LOGDISTANCE_WALKING_NCO_DL1[194] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_LOGDISTANCE_WALKING_CO1_DL0[189] <0>*dl0[363] <0>)+(B_LOGDISTANCE_WALKING_CO1_DL1[190] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_LOGDISTANCE_WALKING_CO2_DL0[191] <0>*dl0[363] <0>)+(B_LOGDISTANCE_WALKING_CO2_DL1[192] <0>*dl1[364] <0>))*co2[352] <0>))*self.logdistance[362] <0>)))^MU_WALKTRANSIT[100] <0>)) + Elem[1](0:0;1:(exp(((((((((((((((((((((((((ASC_TRANSIT_NCO[4] <0>*dl0[363] <0>)+(ASC_TRANSIT_NCO[4] <0>*dl1[364] <0>))*co0[350] <0>)+(((ASC_TRANSIT_CO[3] <0>*dl0[363] <0>)+(ASC_TRANSIT_CO[3] <0>*dl1[364] <0>))*co1[351] <0>))+(((ASC_TRANSIT_CO[3] <0>*dl0[363] <0>)+(ASC_TRANSIT_CO[3] <0>*dl1[364] <0>))*co2[352] <0>))+((((((B_COST_TRANSIT_NCO[26] <0>*dl0[363] <0>)+(B_COST_TRANSIT_NCO[26] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_COST_TRANSIT_CO1_DL0[157] <0>*dl0[363] <0>)+(B_COST_TRANSIT_CO1_DL1[158] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_COST_TRANSIT_CO2_DL0[159] <0>*dl0[363] <0>)+(B_COST_TRANSIT_CO2_DL1[160] <0>*dl1[364] <0>))*co2[352] <0>))*cost_transit[310] <0>))+((((((B_TIME_ACCESS_NCO_DL0[75] <0>*dl0[363] <0>)+(B_TIME_ACCESS_NCO_DL1[76] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_ACCESS_CO[74] <0>*dl0[363] <0>)+(B_TIME_ACCESS_CO[74] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_ACCESS_CO[74] <0>*dl0[363] <0>)+(B_TIME_ACCESS_CO[74] <0>*dl1[364] <0>))*co2[352] <0>))*dur_access[320] <0>))+((((((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_RAIL[89] <0>*dl0[363] <0>)+(B_TIME_RAIL[89] <0>*dl1[364] <0>))*co2[352] <0>))*dur_pt_rail[323] <0>))+((((((B_TIME_BUS_NCO1_DL0[79] <0>*dl0[363] <0>)+(B_TIME_BUS_NCO1_DL1[80] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_BUS_NCO1_DL0[79] <0>*dl0[363] <0>)+(B_TIME_BUS_NCO1_DL1[80] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_BUS_CO2_DL0[77] <0>*dl0[363] <0>)+(B_TIME_BUS_CO2_DL1[78] <0>*dl1[364] <0>))*co2[352] <0>))*dur_pt_bus[324] <0>))+((((((B_TIME_INT_WAIT_NCO[87] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_NCO[87] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_INT_WAIT_CO[86] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_CO[86] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_INT_WAIT_CO[86] <0>*dl0[363] <0>)+(B_TIME_INT_WAIT_CO[86] <0>*dl1[364] <0>))*co2[352] <0>))*dur_interchange_waiting[321] <0>))+((((((B_TIME_INT_WALK_NCO_DL0[276] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_NCO_DL1[277] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_TIME_INT_WALK_CO1[88] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_CO1[88] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_TIME_INT_WALK_CO2_DL0[274] <0>*dl0[363] <0>)+(B_TIME_INT_WALK_CO2_DL1[275] <0>*dl1[364] <0>))*co2[352] <0>))*dur_interchange_walking[322] <0>))+((((((B_PURPOSE_B_TRANSIT_NCO_DL0[209] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_NCO_DL1[210] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_B_TRANSIT_CO_DL0[55] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_CO_DL1[56] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_B_TRANSIT_CO_DL0[55] <0>*dl0[363] <0>)+(B_PURPOSE_B_TRANSIT_CO_DL1[56] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_B[342] <0>))+((((((B_PURPOSE_HBW_TRANSIT_NCO_DL0[248] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_NCO_DL1[249] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBW_TRANSIT_CO1_DL0[246] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_CO1_DL1[247] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBW_TRANSIT_CO2_DL0[70] <0>*dl0[363] <0>)+(B_PURPOSE_HBW_TRANSIT_CO2_DL1[71] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBW[328] <0>))+((((((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_NCO1_DL1[218] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_NCO1_DL1[218] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBE_TRANSIT_DL0[61] <0>*dl0[363] <0>)+(B_PURPOSE_HBE_TRANSIT_CO2_DL1[60] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBE[326] <0>))+((((((B_PURPOSE_HBO_TRANSIT_NCO_DL0[64] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_NCO_DL1[236] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PURPOSE_HBO_TRANSIT_CO1_DL0[232] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_CO1_DL1[233] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PURPOSE_HBO_TRANSIT_CO2_DL0[234] <0>*dl0[363] <0>)+(B_PURPOSE_HBO_TRANSIT_CO2_DL1[235] <0>*dl1[364] <0>))*co2[352] <0>))*purpose_HBO[327] <0>))+((((((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_FEMALE_TRANSIT_DL0[38] <0>*dl0[363] <0>)+(B_FEMALE_TRANSIT_DL1[39] <0>*dl1[364] <0>))*co2[352] <0>))*female[318] <0>))+((((((B_CHILD_TRANSIT_NCO_DL0[143] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_NCO_DL1[144] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CHILD_TRANSIT_CO1_DL0[22] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_CO1_DL1[140] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CHILD_TRANSIT_CO2_DL0[141] <0>*dl0[363] <0>)+(B_CHILD_TRANSIT_CO2_DL1[142] <0>*dl1[364] <0>))*co2[352] <0>))*self.child[355] <0>))+((((((B_CADULT_TRANSIT_NCO_DL0[16] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_NCO_DL1[17] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_CADULT_TRANSIT_CO1_DL0[122] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_CO1_DL1[123] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_CADULT_TRANSIT_CO2_DL0[124] <0>*dl0[363] <0>)+(B_CADULT_TRANSIT_CO2_DL1[125] <0>*dl1[364] <0>))*co2[352] <0>))*self.cadult[356] <0>))+((((((B_ADULT_TRANSIT_NCO[10] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_NCO[10] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_ADULT_TRANSIT_CO1_DL0[112] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_CO1_DL1[9] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_ADULT_TRANSIT_CO2_DL0[113] <0>*dl0[363] <0>)+(B_ADULT_TRANSIT_CO2_DL1[114] <0>*dl1[364] <0>))*co2[352] <0>))*self.adult[357] <0>))+((((((B_WEEKDAY_TRANSIT_NCO_DL0[280] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_NCO_DL1[281] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_WEEKDAY_TRANSIT_CO[97] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_CO[97] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_WEEKDAY_TRANSIT_CO[97] <0>*dl0[363] <0>)+(B_WEEKDAY_TRANSIT_CO[97] <0>*dl1[364] <0>))*co2[352] <0>))*self.weekday[353] <0>))+((((((B_SATURDAY_TRANSIT_NCO_DL0[261] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_NCO_DL1[262] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_SATURDAY_TRANSIT_CO[73] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_CO[73] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_SATURDAY_TRANSIT_CO[73] <0>*dl0[363] <0>)+(B_SATURDAY_TRANSIT_CO[73] <0>*dl1[364] <0>))*co2[352] <0>))*self.saturday[354] <0>))+((((((B_PM_PEAK_TRANSIT_NCO_DL0[197] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_NCO_DL1[198] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_PM_PEAK_TRANSIT_CO[52] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_CO[52] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_PM_PEAK_TRANSIT_CO[52] <0>*dl0[363] <0>)+(B_PM_PEAK_TRANSIT_CO[52] <0>*dl1[364] <0>))*co2[352] <0>))*self.pmpeak[359] <0>))+((((((B_DISTANCE_TRANSIT_NCO_DL0[35] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_DISTANCE_TRANSIT_CO_DL0[33] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_DISTANCE_TRANSIT_CO_DL0[33] <0>*dl0[363] <0>)+(B_DISTANCE_TRANSIT_DL1[34] <0>*dl1[364] <0>))*co2[352] <0>))*self.distance_km[361] <0>))+((((((B_LOGDISTANCE_TRANSIT_NCO[48] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_NCO[48] <0>*dl1[364] <0>))*co0[350] <0>)+(((B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl1[364] <0>))*co1[351] <0>))+(((B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl0[363] <0>)+(B_LOGDISTANCE_TRANSIT_CO[47] <0>*dl1[364] <0>))*co2[352] <0>))*self.logdistance[362] <0>)))^MU_WALKTRANSIT[100] <0>)))^((1/MU_WALKTRANSIT[100] <0>)-1)))))>: 0
+
+srun: error: h234: task 0: Exited with exit code 1
+srun: Terminating job step 177756.0
+Finished at lun aoû 12 14:41:16 CEST 2019

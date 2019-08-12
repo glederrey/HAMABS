@@ -1,0 +1,7 @@
+Optimizing LPMC_Nested_Full_M with best algo at lun aoû 12 18:41:06 CEST 2019
+Optimize LPMC_Nested_Full_L with LS-ABS and hybrid-inv
+/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py:313: LineSearchWarning: The line search algorithm did not converge
+  warn('The line search algorithm did not converge', LineSearchWarning)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 178270 ON h263 CANCELLED AT 2019-08-12T19:11:07 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 178270.0 ON h263 CANCELLED AT 2019-08-12T19:11:07 DUE TO TIME LIMIT ***
