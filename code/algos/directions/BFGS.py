@@ -9,8 +9,6 @@ class BFGS(Direction):
     def __init__(self, **kwargs):
         Direction.__init__(self, **kwargs)
 
-        self.I = np.eye(len(self.x0))
-
     def compute_func_and_derivatives(self, batch, full_size):
 
         if batch != full_size or self.batch_changed:
@@ -40,10 +38,6 @@ class BFGS(Direction):
     def compute_direction(self, xk, gk, Bk):
 
         return cg(xk, Bk, -gk)
-
-    def init_hessian(self, x0):
-
-        return self.I
 
     def upd_hessian(self, xk, xk_new, f, fprime, Bk):
         # Have a look at the Wikipedia page for BFGS for this algorithm

@@ -18,6 +18,8 @@ class Direction:
 
         self.mult = 1
 
+        self.I = np.eye(len(self.x0))
+
     def prep_mult_factor(self, maximize):
 
         self.mult = 1
@@ -39,7 +41,7 @@ class Direction:
 
     def init_hessian(self, x0):
         # Used by BFGS
-        return None
+        return self.I
 
     def upd_hessian(self, xk, xk_new, f, fprime, Bk):
         # Used by BFGS and Hybrid

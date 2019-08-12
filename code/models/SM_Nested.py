@@ -35,11 +35,11 @@ class SM_Nested:
         exclude = ((self.PURPOSE != 1) * (self.PURPOSE != 3) + (self.CHOICE == 0)) > 0
         self.database.remove(exclude)
 
-        ASC_CAR = Beta('ASC_CAR', 0, None, None, 0, 'Car cte.')
-        ASC_TRAIN = Beta('ASC_TRAIN', 0, None, None, 0, 'Train cte.')
+        ASC_CAR = Beta('ASC_CAR', 0, -5, 5, 0, 'Car cte.')
+        ASC_TRAIN = Beta('ASC_TRAIN', 0, -5, 5, 0, 'Train cte.')
         ASC_SM = Beta('ASC_SM', 0, None, None, 1, 'Swissmetro cte.')
-        B_TIME = Beta('B_TIME', 0, None, None, 0, 'Travel time')
-        B_COST = Beta('B_COST', 0, None, None, 0, 'Travel cost')
+        B_TIME = Beta('B_TIME', 0, -5, 5, 0, 'Travel time')
+        B_COST = Beta('B_COST', 0, -5, 5, 0, 'Travel cost')
 
         MU = Beta('MU', 2.05, 1, 5, 0)
 

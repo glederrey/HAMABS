@@ -134,7 +134,6 @@ class OptAlg:
         elif self.alg_type_str == 'TR-ABS':
             self.alg_type = TrustRegionABS(**kwargs)
 
-
     def solve(self, maximize=False):
         """
         Minimize the objective function f starting from x0.

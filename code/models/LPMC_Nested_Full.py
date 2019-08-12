@@ -520,7 +520,7 @@ class LPMC_Nested_Full:
         B_WINTER_WALKING_CO2_DL1 = Beta('B_WINTER_WALKING_CO2_DL1', 0, -10, 10, 1, 'B_WINTER_WALKING_CO2_DL1')
 
         # Nesting parameter
-        MU_WALKTRANSIT = Beta('MU_WALKTRANSIT', 2.05, 1, 10, 0)
+        MU_WALKTRANSIT = Beta('MU_WALKTRANSIT', 2.05, 1, 5, 0)
 
         co0 = DefineVariable('co0', self.car_ownership==0, self.database)
         co1 = DefineVariable('co1', self.car_ownership==1, self.database)
