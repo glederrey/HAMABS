@@ -8,12 +8,8 @@ def _write(msg):
 
 def back_to_bounds(xk, bounds):
     if bounds is not None:
-        tmp = []
-        for i, x in enumerate(xk):
-            val = constrain(x, bounds[i][0], bounds[i][1])
-            tmp.append(val)
-
-        return np.array(tmp)
+        bounded = [constrain(x, bounds[i][0], bounds[i][1]) for i, x in enumerate(xk)]
+        return np.array(bounded)
     else:
         return xk
 
