@@ -16,6 +16,7 @@ class SM_MNL:
         self.df = df
 
         self.biogeme = None
+        self.x0 = None
 
         self.prep_db()
 
@@ -56,8 +57,6 @@ class SM_MNL:
         CAR_TT_SCALED = DefineVariable('CAR_TT_SCALED', self.CAR_TT / 100, self.database)
         CAR_CO_SCALED = DefineVariable('CAR_CO_SCALED', self.CAR_CO / 100, self.database)
 
-        self.x0 = np.zeros(4)
-
         V1 = ASC_TRAIN + \
              B_TIME * TRAIN_TT_SCALED + \
              B_COST * TRAIN_COST_SCALED
@@ -84,8 +83,10 @@ class SM_MNL:
         logprob = bioLogLogit(self.V, self.av, self.CHOICE)
 
         self.biogeme = bio.BIOGEME(self.database, logprob)
-        self.biogeme.modelName = "01logit"
+        self.biogeme.modelName = "SM_MNL"
         self.biogeme.generateHtml = False
+
+        self.x0 = self.biogeme.betaInitValues
 
     def optimize(self, algo, **kwargs):
 

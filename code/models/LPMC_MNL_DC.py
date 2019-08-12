@@ -16,6 +16,7 @@ class LPMC_MNL_DC:
         self.file = file
 
         self.biogeme = None
+        self.x0 = None
 
         self.prep_db()
 
@@ -84,12 +85,10 @@ class LPMC_MNL_DC:
         logprob = bioLogLogit(V, av, self.tmode)
 
         self.biogeme = bio.BIOGEME(self.database, logprob)
-        self.biogeme.modelName = "CLT_DrivingCostMNL"
+        self.biogeme.modelName = "LPMC_MNL_DC"
         self.biogeme.generateHtml = False
 
-        self.size_db = len(self.database.data)
-        self.x0 = np.zeros(len(self.biogeme.betaInitValues))
-
+        self.x0 = self.biogeme.betaInitValues
 
     def optimize(self, algo, **kwargs):
 

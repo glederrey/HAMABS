@@ -1,6 +1,5 @@
 from .Direction import Direction
-
-from .helpers import back_to_bounds
+from ..helpers import back_to_bounds
 
 
 class Gradient(Direction):

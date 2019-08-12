@@ -1,5 +1,6 @@
 from .Direction import Direction
-from .helpers import cg, back_to_bounds
+from .helpers import cg
+from ..helpers import back_to_bounds
 import numpy as np
 
 

@@ -92,6 +92,24 @@ class OptAlg:
         # Function
         self.f = lambda x: self.biogeme.calculateLikelihood(x)
 
+        # Fix the issue with the bounds. We don't want to have None.
+        # We want to have -inf or +inf instead.
+
+        if self.bounds is not None:
+            new_bounds = []
+            for b in self.bounds:
+                if b[0] is None and b[1] is None:
+                    new_bounds.append((-np.inf, np.inf))
+                elif b[0] is None and b[1] is not None:
+                    new_bounds.append((-np.inf, b[1]))
+                elif b[0] is not None and b[1] is None:
+                    new_bounds.append((b[0], np.inf))
+                else:
+                    new_bounds.append((b[0], b[1]))
+
+            self.bounds = new_bounds
+            kwargs['bounds'] = self.bounds
+
         # Prepare the direction
         if self.dir_str == 'grad':
             self.dir = Gradient(**kwargs)
@@ -115,6 +133,7 @@ class OptAlg:
             self.alg_type = TrustRegion(**kwargs)
         elif self.alg_type_str == 'TR-ABS':
             self.alg_type = TrustRegionABS(**kwargs)
+
 
     def solve(self, maximize=False):
         """

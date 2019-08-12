@@ -15,6 +15,7 @@ class SM_Nested:
         self.data_folder = data_folder
 
         self.biogeme = None
+        self.x0 = None
 
         self.prep_db()
 
@@ -54,9 +55,6 @@ class SM_Nested:
         CAR_TT_SCALED = DefineVariable('CAR_TT_SCALED', self.CAR_TT / 100, self.database)
         CAR_CO_SCALED = DefineVariable('CAR_CO_SCALED', self.CAR_CO / 100, self.database)
 
-        self.x0 = np.array([0.0, 0.0, 0.0, 0.0, 2.05])
-        self.bounds = [(-2, 2), (-2, 2), (-2, 2), (-2, 2), (1, 5)]
-
         V1 = ASC_TRAIN + \
              B_TIME * TRAIN_TT_SCALED + \
              B_COST * TRAIN_COST_SCALED
@@ -90,17 +88,19 @@ class SM_Nested:
         # The choice model is a nested logit, with availability conditions
         logprob = models.lognested(V, av, nests, self.CHOICE)
         self.biogeme = bio.BIOGEME(self.database, logprob)
-        self.biogeme.modelName = "09nested"
+        self.biogeme.modelName = "SM_Nested"
         self.biogeme.generateHtml = False
 
         self.biogeme.theC.setData(self.database.data)
+
+        self.x0 = self.biogeme.betaInitValues
 
     def optimize(self, algo, **kwargs):
 
         self.biogeme.database = self.database
         self.biogeme.theC.setData(self.biogeme.database.data)
 
-        kwargs['bounds'] = self.bounds
+        kwargs['bounds'] = self.biogeme.bounds
 
         algo.__prep__(self.x0, self.biogeme, **kwargs)
 

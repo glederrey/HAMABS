@@ -1,6 +1,7 @@
 import sys
 import numpy as np
 
+
 class Direction:
 
     def __init__(self, **kwargs):

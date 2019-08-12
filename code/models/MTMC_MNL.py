@@ -14,6 +14,7 @@ class MTMC_MNL:
         self.data_folder = data_folder
 
         self.biogeme = None
+        self.x0 = None
 
         self.prep_db()
 
@@ -492,11 +493,10 @@ class MTMC_MNL:
 
         logprob = bioLogLogit(self.__V, self.__av, self.choice)
         self.biogeme = bio.BIOGEME(self.database, logprob)
-        self.biogeme.modelName = "MTMC"
+        self.biogeme.modelName = "MTMC_MNL"
         self.biogeme.generateHtml = False
 
-        self.size_db = len(self.database.data)
-        self.x0 = np.zeros(len(self.biogeme.betaInitValues))
+        self.x0 = self.biogeme.betaInitValues
 
     def sample(self, n):
         if n < self.size_db:

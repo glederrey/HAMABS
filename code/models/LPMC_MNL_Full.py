@@ -16,6 +16,7 @@ class LPMC_MNL_Full:
         self.file = file
 
         self.biogeme = None
+        self.x0 = None
 
         self.prep_db()
 
@@ -789,19 +790,17 @@ class LPMC_MNL_Full:
 
         av = {1: 1,
               2: 1,
-              3: 1,
+          3: 1,
               4: 1}
 
         # The choice model is a logit, with availability conditions
         logprob = bioLogLogit(V, av, self.tmode)
 
         self.biogeme = bio.BIOGEME(self.database, logprob)
-        self.biogeme.modelName = "ComplexLondonTravelMNL"
+        self.biogeme.modelName = "LPMC_MNL_Full"
         self.biogeme.generateHtml = False
 
-
-        self.size_db = len(self.database.data)
-        self.x0 = np.zeros(len(self.biogeme.betaInitValues))
+        self.x0 = self.biogeme.betaInitValues
 
     def optimize(self, algo, **kwargs):
 

@@ -10,11 +10,16 @@ def back_to_bounds(xk, bounds):
     if bounds is not None:
         tmp = []
         for i, x in enumerate(xk):
-            tmp.append(min(max(x, bounds[i][0]), bounds[i][1]))
+            val = constrain(x, bounds[i][0], bounds[i][1])
+            tmp.append(val)
 
         return np.array(tmp)
     else:
         return xk
+
+
+def constrain(val, min_val, max_val):
+    return min(max_val, max(min_val, val))
 
 
 def stop_crit(xs, f, grad):
