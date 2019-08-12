@@ -1,0 +1,11 @@
+Starting optimization of MTMC with LS and hess at ven aoû 9 15:18:23 CEST 2019
+Train MTMC with LS and hess
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 176264.0 ON h271 CANCELLED AT 2019-08-11T15:18:38 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 176264 ON h271 CANCELLED AT 2019-08-11T15:18:38 DUE TO TIME LIMIT ***

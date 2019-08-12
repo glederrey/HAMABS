@@ -1,0 +1,24 @@
+Starting optimization of MTMC with TR-ABS and hess at ven aoû 9 15:18:29 CEST 2019
+Train MTMC with TR-ABS and hess
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 176267.0 ON h146 CANCELLED AT 2019-08-11T15:18:38 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 176267 ON h146 CANCELLED AT 2019-08-11T15:18:38 DUE TO TIME LIMIT ***

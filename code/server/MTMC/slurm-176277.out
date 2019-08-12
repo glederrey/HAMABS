@@ -1,0 +1,11 @@
+Starting optimization of MTMC with biogeme at ven aoû 9 15:24:38 CEST 2019
+Train MTMC with current Biogeme optimization algorithm.
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 176277.0 ON h275 CANCELLED AT 2019-08-11T15:24:37 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 176277 ON h275 CANCELLED AT 2019-08-11T15:24:37 DUE TO TIME LIMIT ***
