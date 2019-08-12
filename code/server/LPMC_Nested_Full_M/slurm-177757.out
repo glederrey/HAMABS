@@ -1,6 +1,0 @@
-Starting optimization of LPMC_Nested_Full_M with biogeme at lun aoû 12 14:27:52 CEST 2019
-Train LPMC_Nested_Full with current Biogeme optimization algorithm.
-1/20 done!
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 177757.0 ON h092 CANCELLED AT 2019-08-12T18:46:55 ***
-slurmstepd: error: *** JOB 177757 ON h092 CANCELLED AT 2019-08-12T18:46:55 ***

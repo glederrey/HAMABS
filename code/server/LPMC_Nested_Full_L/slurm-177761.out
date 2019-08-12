@@ -1,6 +1,0 @@
-Starting optimization of LPMC_Nested_Full_L with TR and hess at lun aoû 12 14:28:22 CEST 2019
-Train LPMC_Nested_Full_L with TR and hess
-1/20 done!
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 177761.0 ON h106 CANCELLED AT 2019-08-12T18:46:54 ***
-slurmstepd: error: *** JOB 177761 ON h106 CANCELLED AT 2019-08-12T18:46:54 ***

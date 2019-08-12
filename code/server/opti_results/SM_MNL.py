@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_Nested_Full
+from models import SM_MNL
 
 data_folder = '../../../data/'
 
@@ -16,8 +16,8 @@ class NumpyEncoder(json.JSONEncoder):
     """ Special json encoder for numpy types """
     def default(self, obj):
         if isinstance(obj, (np.int_, np.intc, np.intp, np.int8,
-                            np.int16, np.int32, np.int64, np.uint8,
-                            np.uint16, np.uint32, np.uint64)):
+            np.int16, np.int32, np.int64, np.uint8,
+            np.uint16, np.uint32, np.uint64)):
             return int(obj)
         elif isinstance(obj, (np.float_, np.float16, np.float32,
             np.float64)):
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    model = LPMC_Nested_Full(data_folder)
+    model = SM_MNL(data_folder)
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
@@ -40,5 +40,5 @@ if __name__ == "__main__":
 
     dumped = json.dumps(res, cls=NumpyEncoder)
 
-    with open('results/LPMC_Nested_Full_M.json', 'w') as outfile:
+    with open('results/SM_MNL.json', 'w') as outfile:
         json.dump(dumped, outfile)

@@ -1,8 +1,0 @@
-Starting optimization of LPMC_Nested_Full_M with TR-ABS and bfgs at lun aoû 12 14:27:02 CEST 2019
-Train LPMC_Nested_Full_M with TR-ABS and bfgs
-../../algos/directions/BFGS.py:59: RuntimeWarning: divide by zero encountered in double_scalars
-  alpha = 1. / np.dot(yk.T, sk)
-../../algos/directions/BFGS.py:67: RuntimeWarning: divide by zero encountered in double_scalars
-  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
-slurmstepd: error: *** STEP 177751.0 ON h109 CANCELLED AT 2019-08-12T18:46:56 ***
-slurmstepd: error: *** JOB 177751 ON h109 CANCELLED AT 2019-08-12T18:46:56 ***

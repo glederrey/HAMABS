@@ -1,7 +1,0 @@
-Starting optimization of LPMC_Nested_Full_M with LS-ABS and bfgs-inv at lun aoû 12 14:27:48 CEST 2019
-Train LPMC_Nested_Full_M with LS-ABS and bfgs-inv
-Traceback (most recent call last):
-  File "LS-ABS_bfgs-inv.py", line 30, in <module>
-srun: error: h039: task 0: Segmentation fault
-srun: Terminating job step 177753.0
-Finished at lun aoû 12 14:28:27 CEST 2019

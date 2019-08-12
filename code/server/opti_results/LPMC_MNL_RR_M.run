@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/opti_results
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 24
+#SBATCH --mem 192000
+#SBATCH --time=3:00:00
+
+module load gcc/7.4.0 python/3.7.3
+source ~/pybio/bin/activate
+echo Optimizing LPMC_MNL_RR_M with best algo at `date`
+srun python -u LPMC_MNL_RR_M.py
+echo Finished at `date`
+
