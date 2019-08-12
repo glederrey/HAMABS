@@ -11,4 +11,3 @@ source ~/pybio/bin/activate
 echo Optimizing MTMC_MNL with best algo at `date`
 srun python -u MTMC_MNL.py
 echo Finished at `date`
-
