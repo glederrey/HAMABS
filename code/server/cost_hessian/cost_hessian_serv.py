@@ -6,8 +6,9 @@ import time
 import json
 import numpy as np
 
-from models import SM_Nested
-from models import SM_MNL
+from models import LPMC_MNL_Full
+from models import LPMC_MNL_DC
+from models import LPMC_MNL_RR
 
 data_folder = '../../../data/'
 
@@ -16,8 +17,8 @@ if __name__ == '__main__':
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    models = [SM_MNL, SM_Nested]
-    str_model = ['SM_MNL', 'SM_Nested']
+    models = [LPMC_MNL_DC, LPMC_MNL_RR, LPMC_MNL_Full]
+    str_model = ['LPMC_MNL_DC', 'LPMC_MNL_RR', 'LPMC_MNL_Full']
 
     # Go through each model to test all of them
     for model_constr, str_ in zip(models, str_model):

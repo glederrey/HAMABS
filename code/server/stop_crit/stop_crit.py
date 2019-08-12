@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_Full
+from models import LPMC_MNL_Full
 
 data_folder = '../../../data/'
 
@@ -32,9 +32,9 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Train LPMC_Full_big with LS-ABS and hybrid-inv")
+    print("Train LPMC_MNL_Full_L with LS-ABS and hybrid-inv")
 
-    model = LPMC_Full(data_folder, file='12_13_14.csv')
+    model = LPMC_MNL_Full(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
