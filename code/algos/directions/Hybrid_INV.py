@@ -16,7 +16,7 @@ class Hybrid_INV(Direction):
 
         self.switch = False
 
-        self.perc = 0.3
+        self.perc = kwargs.get('perc_hybrid', 0.3)
 
     def compute_func_and_derivatives(self, batch, full_size):
 
