@@ -41,5 +41,5 @@ if __name__ == "__main__":
 
     dumped = json.dumps(res, cls=NumpyEncoder)
 
-    with open('results/res.json', 'w') as outfile:
+    with open('results/LPMC_Nested_Full_M.json', 'w') as outfile:
         json.dump(dumped, outfile)
