@@ -1,0 +1,27 @@
+Starting to test different percentage for Hybrid at lun aoû 12 15:09:40 CEST 2019
+Test different percentages for the LS-ABS hybrid-inv
+Start with perc of 0
+  1/10 done!
+  2/10 done!
+  3/10 done!
+  4/10 done!
+  5/10 done!
+  6/10 done!
+  7/10 done!
+  8/10 done!
+  9/10 done!
+  10/10 done!
+
+
+Start with perc of 0.1
+  1/10 done!
+  2/10 done!
+  3/10 done!
+  4/10 done!
+  5/10 done!
+  6/10 done!
+  7/10 done!
+  8/10 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 177810 ON h037 CANCELLED AT 2019-08-12T15:26:43 ***
+slurmstepd: error: *** STEP 177810.0 ON h037 CANCELLED AT 2019-08-12T15:26:43 ***
