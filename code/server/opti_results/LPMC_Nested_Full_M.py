@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
-    res = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+    res = model.optimize(ioa, **{'verbose': True, 'nbr_epochs': 1000, 'batch': 1000})
 
     dumped = json.dumps(res, cls=NumpyEncoder)
 
