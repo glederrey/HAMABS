@@ -31,16 +31,16 @@ if __name__ == "__main__":
         print("Start with perc of {}".format(p))
 
         res_tmp = {'time': [], 'LL': [], 'epochs': []}
-        for i in range(10):
+        for i in range(20):
             start = time.time()
-            tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000, 'perc_hybrid': p})
+            tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01, 'perc_hybrid': p})
             tme = time.time() - start
 
             res_tmp['time'].append(tme)
             res_tmp['LL'].append(tmp['fun'])
             res_tmp['epochs'].append(tmp['nep'])
 
-            print("  {}/10 done!".format(i + 1))
+            print("  {}/20 done!".format(i + 1))
 
             res[p] = res_tmp
 
@@ -53,16 +53,16 @@ if __name__ == "__main__":
     ioa = OptAlg(alg_type='LS-ABS', direction='bfgs-inv')
 
     res_tmp = {'time': [], 'LL': [], 'epochs': []}
-    for i in range(10):
+    for i in range(20):
         start = time.time()
-        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01})
         tme = time.time() - start
 
         res_tmp['time'].append(tme)
         res_tmp['LL'].append(tmp['fun'])
         res_tmp['epochs'].append(tmp['nep'])
 
-        print("  {}/10 done!".format(i + 1))
+        print("  {}/20 done!".format(i + 1))
 
         res['bfgs-inv'] = res_tmp
 
@@ -75,16 +75,16 @@ if __name__ == "__main__":
     ioa = OptAlg(alg_type='LS-ABS', direction='hess')
 
     res_tmp = {'time': [], 'LL': [], 'epochs': []}
-    for i in range(10):
+    for i in range(20):
         start = time.time()
-        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01})
         tme = time.time() - start
 
         res_tmp['time'].append(tme)
         res_tmp['LL'].append(tmp['fun'])
         res_tmp['epochs'].append(tmp['nep'])
 
-        print("  {}/10 done!".format(i + 1))
+        print("  {}/20 done!".format(i + 1))
 
         res['hess'] = res_tmp
 

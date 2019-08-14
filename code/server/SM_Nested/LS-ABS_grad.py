@@ -27,7 +27,7 @@ if __name__ == "__main__":
     for i in range(20):
 
         start = time.time()
-        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 100})
+        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01})
         tme = time.time() - start
 
         res['time'].append(tme)

@@ -1,0 +1,14 @@
+#!/bin/bash -l
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/LPMC_MNL_RR_M
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 24
+#SBATCH --mem 192000
+#SBATCH --time=24:00:00
+
+module load gcc/7.4.0 python/3.7.3
+source ~/pybio/bin/activate
+echo Starting optimization of LPMC_MNL_RR_M with biogeme at `date`
+srun python -u biogeme_bfgs_tol.py
+echo Finished at `date`
+

@@ -1,16 +1,10 @@
-python LS_grad.py
 python LS-ABS_grad.py
-python LS_hess.py
-python TR_hess.py
 python LS-ABS_hess.py
 python TR-ABS_hess.py
-python LS_bfgs.py
-python TR_bfgs.py
 python LS-ABS_bfgs.py
 python TR-ABS_bfgs.py
-python LS_bfgs-inv.py
 python LS-ABS_bfgs-inv.py
 python LS-ABS_hybrid.py
 python TR-ABS_hybrid.py
 python LS-ABS_hybrid-inv.py
-python biogeme_bfgs.py
+python biogeme_bfgs_tol.py
