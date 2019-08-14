@@ -1,9 +1,0 @@
-Starting optimization of LPMC_Nested_Full_S with LS and grad at lun aoû 12 23:10:20 CEST 2019
-Train LPMC_Nested_Full_S with LS and grad
-Traceback (most recent call last):
-  File "LS_grad.py", line 30, in <module>
-    tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
-  File "../../models/LPMC_Nested_Full.py", line 826, in optimize
-srun: error: h089: task 0: Segmentation fault
-srun: Terminating job step 178398.0
-Finished at lun aoû 12 23:10:58 CEST 2019

@@ -1,9 +1,0 @@
-Starting optimization of LPMC_Nested_Full_S with LS and bfgs at lun aoû 12 23:10:20 CEST 2019
-Train LPMC_Nested_Full_S with LS and bfgs
-Traceback (most recent call last):
-  File "LS_bfgs.py", line 30, in <module>
-    tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
-  File "../../models/LPMC_Nested_Full.py", line 826, in optimize
-srun: error: h054: task 0: Segmentation fault
-srun: Terminating job step 178404.0
-Finished at lun aoû 12 23:10:56 CEST 2019
