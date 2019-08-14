@@ -1,0 +1,5 @@
+Starting optimization of MTMC_MNL with LS-ABS and hybrid at mer aoû 14 18:19:22 CEST 2019
+Train MTMC_MNL with LS-ABS and hybrid
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 181275.0 ON h272 CANCELLED AT 2019-08-14T18:22:15 ***
+slurmstepd: error: *** JOB 181275 ON h272 CANCELLED AT 2019-08-14T18:22:15 ***

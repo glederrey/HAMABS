@@ -1,0 +1,125 @@
+Starting optimization of LPMC_MNL_DC_S with biogeme at mer aoû 14 17:35:10 CEST 2019
+Train LPMC_MNL_DC with current Biogeme optimization algorithm.
+/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py:368: OptimizeWarning: Unknown solver options: ftol
+  results =  minimize(f_and_grad,self.betaInitValues,bounds=None,jac=True,options=opts)
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+1/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+2/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+3/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+4/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+5/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+6/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+7/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+8/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+9/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+10/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+11/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+12/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+13/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+14/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+15/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+16/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+17/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+18/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+19/20 done!
+Optimization terminated successfully.
+         Current function value: 22651.942594
+         Iterations: 29
+         Function evaluations: 34
+         Gradient evaluations: 34
+20/20 done!
+Finished at mer aoû 14 17:35:30 CEST 2019

@@ -1,0 +1,125 @@
+Starting optimization of LPMC_MNL_DC_S with biogeme at mer aoû 14 17:32:25 CEST 2019
+Train LPMC_MNL_DC with current Biogeme optimization algorithm.
+/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py:368: OptimizeWarning: Unknown solver options: ftol
+  results =  minimize(f_and_grad,self.betaInitValues,bounds=None,jac=True,options=opts)
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+1/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+2/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+3/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+4/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+5/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+6/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+7/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+8/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+9/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+10/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+11/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+12/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+13/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+14/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+15/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+16/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+17/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+18/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+19/20 done!
+Optimization terminated successfully.
+         Current function value: 0.010000
+         Iterations: 0
+         Function evaluations: 1
+         Gradient evaluations: 1
+20/20 done!
+Finished at mer aoû 14 17:32:37 CEST 2019

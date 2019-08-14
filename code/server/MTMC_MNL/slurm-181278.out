@@ -1,0 +1,5 @@
+Starting optimization of MTMC_MNL with biogeme at mer aoû 14 18:19:22 CEST 2019
+Train MTMC_MNL with current Biogeme optimization algorithm.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 181278.0 ON h276 CANCELLED AT 2019-08-14T18:19:42 ***
+slurmstepd: error: *** JOB 181278 ON h276 CANCELLED AT 2019-08-14T18:19:42 ***

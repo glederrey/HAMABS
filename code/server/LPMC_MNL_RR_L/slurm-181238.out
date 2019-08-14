@@ -1,0 +1,48 @@
+Starting optimization of LPMC_MNL_RR_L with biogeme at mer aoû 14 18:19:04 CEST 2019
+Train LPMC_MNL_RR with current Biogeme optimization algorithm.
+/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py:368: OptimizeWarning: Unknown solver options: ftol
+  results =  minimize(f_and_grad,self.betaInitValues,bounds=None,jac=True,options=opts)
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+1/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+2/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+3/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+4/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+5/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+6/20 done!
+Optimization terminated successfully.
+         Current function value: 55712.991442
+         Iterations: 71
+         Function evaluations: 78
+         Gradient evaluations: 78
+7/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 181238 ON h071 CANCELLED AT 2019-08-14T18:22:16 ***

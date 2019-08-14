@@ -1,0 +1,20 @@
+Starting optimization of LPMC_MNL_RR_S with LS-ABS and grad at mer aoû 14 18:18:43 CEST 2019
+Train LPMC_MNL_RR_S with LS-ABS and grad
+Traceback (most recent call last):
+  File "LS-ABS_grad.py", line 30, in <module>
+    tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01})
+  File "../../models/LPMC_MNL_RR.py", line 268, in optimize
+    return algo.solve(maximize=True)
+  File "../../algos/OptAlg.py", line 186, in solve
+    fk = f(xk)
+  File "../../algos/directions/Gradient.py", line 32, in f
+    return self.mult * self.f(x)
+  File "../../algos/directions/Direction.py", line 15, in <lambda>
+    self.f = lambda x: self.biogeme.calculateLikelihood(x)
+  File "/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py", line 250, in calculateLikelihood
+    f = self.theC.calculateLikelihood(x,self.fixedBetaValues)
+  File "src/cbiogeme.pyx", line 93, in biogeme.cbiogeme.pyBiogeme.calculateLikelihood
+RuntimeError: src/biogeme.cc:296: Biogeme exception: Error for data entry 274 : src/bioExprLiteral.cc:116: Biogeme exception: tmode: 274 out of range [0,273]
+srun: error: h133: task 0: Exited with exit code 1
+srun: Terminating job step 181209.0
+Finished at mer aoû 14 18:18:57 CEST 2019

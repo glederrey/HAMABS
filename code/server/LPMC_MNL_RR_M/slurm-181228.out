@@ -1,0 +1,72 @@
+Starting optimization of LPMC_MNL_RR_M with biogeme at mer aoû 14 18:18:53 CEST 2019
+Train LPMC_MNL_RR with current Biogeme optimization algorithm.
+/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py:368: OptimizeWarning: Unknown solver options: ftol
+  results =  minimize(f_and_grad,self.betaInitValues,bounds=None,jac=True,options=opts)
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+1/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+2/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+3/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+4/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+5/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+6/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+7/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+8/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+9/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+10/20 done!
+Optimization terminated successfully.
+         Current function value: 37281.766083
+         Iterations: 71
+         Function evaluations: 76
+         Gradient evaluations: 76
+11/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 181228 ON h055 CANCELLED AT 2019-08-14T18:22:16 ***
