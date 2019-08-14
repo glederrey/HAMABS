@@ -1,0 +1,9 @@
+Starting optimization of LPMC_Nested_Full_M with LS-ABS and hybrid-inv at lun aoû 12 23:10:33 CEST 2019
+Train LPMC_Nested_Full_M with LS-ABS and hybrid-inv
+/ssoft/spack/paien/v2/opt/spack/linux-rhel7-x86_E5v4_Mellanox/gcc-7.3.0/python-3.6.5-fuxsuhr3v4fh4gdkw6xrvnctzn2meygg/lib/python3.6/site-packages/scipy/optimize/linesearch.py:313: LineSearchWarning: The line search algorithm did not converge
+  warn('The line search algorithm did not converge', LineSearchWarning)
+Traceback (most recent call last):
+  File "LS-ABS_hybrid-inv.py", line 30, in <module>
+srun: error: h218: task 0: Segmentation fault
+srun: Terminating job step 178428.0
+Finished at lun aoû 12 23:31:06 CEST 2019
