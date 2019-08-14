@@ -4,10 +4,9 @@
 #SBATCH --ntasks 1
 #SBATCH --cpus-per-task 24
 #SBATCH --mem 192000
-#SBATCH --time=12:00:00
+#SBATCH --time 12:00:00
 
-module load gcc/7.4.0 python/3.7.3
-source ~/pybio/bin/activate
+source ~/bio_env/bin/activate
 echo Starting optimization of LPMC_MNL_DC_S with LS and bfgs at `date`
 srun python -u LS_bfgs.py
 echo Finished at `date`
