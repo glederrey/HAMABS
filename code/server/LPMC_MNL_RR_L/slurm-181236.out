@@ -1,9 +1,0 @@
-Starting optimization of LPMC_MNL_RR_L with TR-ABS and hybrid at mer aoû 14 18:19:04 CEST 2019
-Train LPMC_MNL_RR_L with TR-ABS and hybrid
-../../algos/directions/Hybrid.py:77: RuntimeWarning: divide by zero encountered in double_scalars
-  alpha = 1. / np.dot(yk.T, sk)
-../../algos/directions/Hybrid.py:85: RuntimeWarning: divide by zero encountered in double_scalars
-  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
-slurmstepd: error: *** STEP 181236.0 ON h068 CANCELLED AT 2019-08-14T18:22:16 ***
-slurmstepd: error: *** JOB 181236 ON h068 CANCELLED AT 2019-08-14T18:22:16 ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

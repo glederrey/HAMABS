@@ -1,5 +1,0 @@
-Starting optimization of MTMC_MNL with LS-ABS and hess at mer aoû 14 18:19:22 CEST 2019
-Train MTMC_MNL with LS-ABS and hess
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 181270.0 ON h266 CANCELLED AT 2019-08-14T18:22:15 ***
-slurmstepd: error: *** JOB 181270 ON h266 CANCELLED AT 2019-08-14T18:22:15 ***

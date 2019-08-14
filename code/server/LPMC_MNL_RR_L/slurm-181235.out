@@ -1,6 +1,0 @@
-Starting optimization of LPMC_MNL_RR_L with LS-ABS and hybrid at mer aoû 14 18:19:04 CEST 2019
-Train LPMC_MNL_RR_L with LS-ABS and hybrid
-1/20 done!
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 181235.0 ON h065 CANCELLED AT 2019-08-14T18:22:16 ***
-slurmstepd: error: *** JOB 181235 ON h065 CANCELLED AT 2019-08-14T18:22:16 ***

@@ -67,4 +67,3 @@ def line_search(func, x, dir):
             return alpha
 
         alpha = alpha/2
-

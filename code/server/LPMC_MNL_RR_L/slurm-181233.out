@@ -1,9 +1,0 @@
-Starting optimization of LPMC_MNL_RR_L with TR-ABS and bfgs at mer aoû 14 18:19:04 CEST 2019
-Train LPMC_MNL_RR_L with TR-ABS and bfgs
-../../algos/directions/BFGS.py:53: RuntimeWarning: divide by zero encountered in double_scalars
-  alpha = 1. / np.dot(yk.T, sk)
-../../algos/directions/BFGS.py:61: RuntimeWarning: divide by zero encountered in double_scalars
-  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 181233 ON h060 CANCELLED AT 2019-08-14T18:22:16 ***
-slurmstepd: error: *** STEP 181233.0 ON h060 CANCELLED AT 2019-08-14T18:22:16 ***

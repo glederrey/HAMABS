@@ -1,4 +1,0 @@
-Starting optimization of LPMC_MNL_Full_L with TR-ABS and hybrid at mer aoû 14 18:19:07 CEST 2019
-Train LPMC_MNL_Full_L with TR-ABS and hybrid
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 181266 ON h191 CANCELLED AT 2019-08-14T18:22:15 ***

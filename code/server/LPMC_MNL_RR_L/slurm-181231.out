@@ -1,7 +1,0 @@
-Starting optimization of LPMC_MNL_RR_L with TR-ABS and hess at mer aoû 14 18:19:04 CEST 2019
-Train LPMC_MNL_RR_L with TR-ABS and hess
-1/20 done!
-2/20 done!
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 181231 ON h057 CANCELLED AT 2019-08-14T18:22:16 ***
-slurmstepd: error: *** STEP 181231.0 ON h057 CANCELLED AT 2019-08-14T18:22:16 ***
