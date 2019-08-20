@@ -1,10 +1,5 @@
-sbatch LS-ABS_grad.run
-sbatch LS-ABS_hess.run
+sbatch TR_hess.run
 sbatch TR-ABS_hess.run
-sbatch LS-ABS_bfgs.run
+sbatch TR_bfgs.run
 sbatch TR-ABS_bfgs.run
-sbatch LS-ABS_bfgs-inv.run
-sbatch LS-ABS_hybrid.run
 sbatch TR-ABS_hybrid.run
-sbatch LS-ABS_hybrid-inv.run
-sbatch biogeme_bfgs_tol.run

@@ -1,5 +1,6 @@
 import sys
 
+
 class Type:
 
     def __init__(self, **kwargs):
@@ -14,11 +15,11 @@ class Type:
     def init_solve(self):
         pass
 
-    def update_xk(self):
+    def update_xk(self, xk, fk, gk, Bk, f, fprime, dir, fs):
         pass
 
     def update_batch(self, it, fk_full):
-        pass
+        return False
 
     def to_str(self):
         return "type"

@@ -18,6 +18,7 @@ class BFGS_INV(Direction):
         if batch != full_size or self.batch_changed:
             # Set the sample for the batch
             sample = self.biogeme.database.data.sample(n=batch, replace=False)
+
             self.biogeme.theC.setData(sample)
 
         def grad_hess(x, B):

@@ -14,6 +14,8 @@ class Direction:
 
         self.f = lambda x: self.biogeme.calculateLikelihood(x)
 
+        self.sample_idx = self.biogeme.database.data.index.tolist()
+
         self.batch_changed = False
 
         self.mult = 1
@@ -27,10 +29,6 @@ class Direction:
         # Inverse the value of the function, the gradient, and the hessian
         if maximize:
             self.mult = -1
-
-        # Scale the value of the function, the gradient, and the hessian, based on the init log likelihood.
-        if self.scale:
-            self.mult = self.mult/np.abs(self.biogeme.calculateInitLikelihood()) * 100.0
 
     def compute_full_f(self, x):
         # Set the full data

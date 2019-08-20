@@ -188,7 +188,7 @@ class OptAlg:
 
             sc = stop_crit(xk, fk, gk)
 
-            if 0 < sc <= self.thresh:
+            if 0 < sc <= self.thresh and self.alg_type.batch == self.alg_type.full_size:
                 if self.verbose:
                     self._write("Algorithm Optimized!\n")
                     self._write("  x* = [{}]\n".format(", ".join(format(x, ".3f") for x in xk)))
@@ -221,10 +221,7 @@ class OptAlg:
             xk = back_to_bounds(xk_new, self.bounds)
 
             # Update the batch size if we're using an ABS algorithm
-            batch_changed = self.alg_type.update_batch(self.it, fk)
-
-            # Tell the direction if the batch changed (used by ABS)
-            self.dir.batch_changed = batch_changed
+            self.dir.batch_changed = self.alg_type.update_batch(self.it, fk)
 
             # Update the Hybrid direction if needed (does nothing for all other directions)
             self.dir.update_dir(self.alg_type.batch, self.alg_type.full_size)
