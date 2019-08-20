@@ -6,7 +6,7 @@
 #SBATCH --mem 192000
 #SBATCH --time 36:00:00
 
-source ~/bio_env/bin/activate
+source ~/bioenv/bin/activate
 echo Starting optimization of LPMC_MNL_Full_M with LS-ABS and bfgs-inv at `date`
 srun python -u LS-ABS_bfgs-inv.py
 echo Finished at `date`

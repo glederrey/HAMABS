@@ -6,7 +6,7 @@
 #SBATCH --mem 192000
 #SBATCH --time {{time}}:00:00
 
-source ~/bio_env/bin/activate
+source ~/bioenv/bin/activate
 echo Starting optimization of {{name}} with {{algo_name}} at `date`
 srun python -u {{filename}}.py
 echo Finished at `date`
