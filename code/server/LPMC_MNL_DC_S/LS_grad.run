@@ -6,7 +6,7 @@
 #SBATCH --mem 192000
 #SBATCH --time 12:00:00
 
-source ~/bio_env/bin/activate
+source ~/bioenv/bin/activate
 echo Starting optimization of LPMC_MNL_DC_S with LS and grad at `date`
 srun python -u LS_grad.py
 echo Finished at `date`
