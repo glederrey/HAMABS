@@ -1,0 +1,26 @@
+/var/spool/slurmd/job189137/slurm_script: line 9: /home/glederre/bio_env/bin/activate: No such file or directory
+Starting optimization of MTMC_MNL with TR-ABS and hess at mar aoû 20 17:12:19 CEST 2019
+Train MTMC_MNL with TR-ABS and hess
+../../models/MTMC_MNL.py:25: FutureWarning: read_table is deprecated, use read_csv instead, passing sep='\t'.
+  df = pd.read_table(self.data_folder + 'MTMC/biogemeMTMC_2015_mobility_tools_cleaned.dat')
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+Finished at jeu aoû 22 15:33:44 CEST 2019

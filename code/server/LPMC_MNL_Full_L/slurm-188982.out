@@ -1,0 +1,13 @@
+/var/spool/slurmd/job188982/slurm_script: line 9: /home/glederre/bio_env/bin/activate: No such file or directory
+Starting optimization of LPMC_MNL_Full_L with TR-ABS and hybrid at mar aoû 20 16:50:52 CEST 2019
+Traceback (most recent call last):
+  File "TR-ABS_hybrid.py", line 8, in <module>
+    from algos import OptAlg
+  File "../../algos/__init__.py", line 1, in <module>
+srun: error: h105: task 0: Exited with exit code 1
+srun: Terminating job step 188982.0
+    from .OptAlg import OptAlg
+  File "../../algos/OptAlg.py", line 7, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Finished at mar aoû 20 16:50:52 CEST 2019

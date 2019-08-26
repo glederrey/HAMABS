@@ -1,0 +1,28 @@
+/var/spool/slurmd/job189099/slurm_script: line 9: /home/glederre/bio_env/bin/activate: No such file or directory
+Starting optimization of LPMC_MNL_DC_M with TR-ABS and bfgs at mar aoû 20 16:57:52 CEST 2019
+Train LPMC_MNL_DC_M with TR-ABS and bfgs
+../../algos/directions/BFGS.py:54: RuntimeWarning: divide by zero encountered in double_scalars
+  alpha = 1. / np.dot(yk.T, sk)
+../../algos/directions/BFGS.py:62: RuntimeWarning: divide by zero encountered in double_scalars
+  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+Finished at mar aoû 20 17:02:21 CEST 2019
