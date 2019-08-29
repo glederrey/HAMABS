@@ -25,7 +25,7 @@ class TrustRegion(Type):
 
         # Other parameters
         self.precondition = kwargs.get('precondition', lambda v: v)
-        self.thresh = kwargs.get('thresh', 1.0e-5)
+        self.tresh_tr = kwargs.get('thresh_tr', 1.0e-6)
         self.deltak = self.delta0
         self.deltaM = 9999
 
@@ -97,7 +97,7 @@ class TrustRegion(Type):
             msg += 'Is preconditioner positive definite?'
             raise ValueError(msg)
 
-        stopTol = max(self.thresh, self.reltol*sqrtry)
+        stopTol = max(self.tresh_tr, self.reltol*sqrtry)
 
         # p is the preconditionel residual
         p = -y

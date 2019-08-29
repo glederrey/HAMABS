@@ -9,7 +9,7 @@ from scipy.optimize.optimize import OptimizeResult
 
 from .directions import *
 from .types import *
-from .helpers import back_to_bounds, stop_crit
+from .helpers import back_to_bounds, sc_grad, sc_rel_grad
 
 
 class OptAlg:
@@ -78,11 +78,12 @@ class OptAlg:
         self.n = len(x0)
 
         # Other parameters in kwargs
-        self.nbr_epochs = kwargs.get('nbr_epochs', 20)
-        self.thresh = kwargs.get('thresh', 1.0e-6)
+        self.max_epochs = kwargs.get('max_epochs', 200)
+        self.thresh = kwargs.get('thresh', 1e-6)
         self.bounds = kwargs.get('bounds', None)
         self.verbose = kwargs.get('verbose', False)
         self.seed = kwargs.get('seed', -1)
+        self.stop_scrit_str = kwargs.get('stop_crit', 'rel_grad')
 
         # Formats to display info about subproblem
         self.hd_fmt = '     %-5s  %9s  %8s\n'
@@ -134,6 +135,11 @@ class OptAlg:
         elif self.alg_type_str == 'TR-ABS':
             self.alg_type = TrustRegionABS(**kwargs)
 
+        if self.stop_scrit_str == 'rel_grad':
+            self.stop_crit = sc_rel_grad
+        else:
+            self.stop_crit = sc_grad
+
     def solve(self, maximize=False):
         """
         Minimize the objective function f starting from x0.
@@ -178,7 +184,7 @@ class OptAlg:
         # Nothing for the other directions
         Bk = self.dir.init_hessian(self.x0)
 
-        while self.ep < self.nbr_epochs:
+        while self.ep < self.max_epochs:
 
             # Get the function, its gradient and the Hessian
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, self.alg_type.full_size)
@@ -186,7 +192,15 @@ class OptAlg:
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)
 
-            sc = stop_crit(xk, fk, gk)
+            # Add the return values to the arrays
+            self.xs.append(xk)
+            self.fs.append(fk)
+            self.epochs.append(self.ep)
+            self.batches.append(self.alg_type.batch)
+
+            sc = self.stop_crit(xk, fk, gk)
+
+            print(sc)
 
             if 0 < sc <= self.thresh and self.alg_type.batch == self.alg_type.full_size:
                 if self.verbose:
@@ -196,12 +210,6 @@ class OptAlg:
 
                 self.optimized = True
                 break
-
-            # Add the return values to the arrays
-            self.xs.append(xk)
-            self.fs.append(fk)
-            self.epochs.append(self.ep)
-            self.batches.append(self.alg_type.batch)
 
             if self.verbose:
                 self._write("Epoch {}:\n".format(self.ep))

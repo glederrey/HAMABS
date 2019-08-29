@@ -18,8 +18,13 @@ def constrain(val, min_val, max_val):
     return min(max_val, max(min_val, val))
 
 
-def stop_crit(xs, f, grad):
+def sc_rel_grad(xs, f, grad):
 
     vals = [np.abs(x*df) for x, df in zip(xs, grad)]
 
     return np.max(vals)/np.abs(f)
+
+
+def sc_grad(xs, f, grad):
+
+    return np.linalg.norm(grad)
