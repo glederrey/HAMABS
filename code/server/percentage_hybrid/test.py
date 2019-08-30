@@ -33,7 +33,7 @@ if __name__ == "__main__":
         res_tmp = {'time': [], 'LL': [], 'epochs': []}
         for i in range(20):
             start = time.time()
-            tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01, 'perc_hybrid': p})
+            tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000, 'perc_hybrid': p})
             tme = time.time() - start
 
             res_tmp['time'].append(tme)
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     res_tmp = {'time': [], 'LL': [], 'epochs': []}
     for i in range(20):
         start = time.time()
-        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 0.01})
+        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
         tme = time.time() - start
 
         res_tmp['time'].append(tme)
