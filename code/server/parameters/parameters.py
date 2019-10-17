@@ -29,7 +29,7 @@ if __name__ == "__main__":
     main_params = {'verbose': False, 'nbr_epochs': 1000, 'batch': 1000}
     main_params.update(base_param)
 
-    draws = 1
+    draws = 20
 
     res = {}
 
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         with open('results/parameters.json', 'w') as outfile:
             json.dump(res, outfile)
 
-        print("{}/10 done!".format(i+1))
+        print("{}/{} done!".format(i+1, draws))
 
     print("")
     print("Start with thresh_upd")
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             with open('results/parameters.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['thresh_upd'] = base_param['thresh_upd']
@@ -118,7 +118,7 @@ if __name__ == "__main__":
             with open('results/parameters.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['count_upd'] = base_param['count_upd']
@@ -152,7 +152,7 @@ if __name__ == "__main__":
             with open('results/parameters.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['window'] = base_param['window']
@@ -186,7 +186,7 @@ if __name__ == "__main__":
             with open('results/parameters.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i+1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['factor_upd'] = base_param['factor_upd']
@@ -220,7 +220,7 @@ if __name__ == "__main__":
             with open('results/parameters.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     print("DONE!")
