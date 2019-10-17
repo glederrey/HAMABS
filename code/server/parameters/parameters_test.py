@@ -113,7 +113,7 @@ if __name__ == "__main__":
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
-            res['thresh_upd'][co] = tmp_res
+            res['count_upd'][co] = tmp_res
 
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
@@ -147,7 +147,7 @@ if __name__ == "__main__":
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
-            res['thresh_upd'][tu] = tmp_res
+            res['window'][tu] = tmp_res
 
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
@@ -181,7 +181,7 @@ if __name__ == "__main__":
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
-            res['thresh_upd'][fu] = tmp_res
+            res['factor_upd'][fu] = tmp_res
 
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
