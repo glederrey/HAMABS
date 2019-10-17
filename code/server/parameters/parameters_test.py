@@ -147,7 +147,7 @@ if __name__ == "__main__":
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
-            res['window'][tu] = tmp_res
+            res['window'][win] = tmp_res
 
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
