@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_MNL_RR_L
+from models import LPMC_MNL_RR
 
 data_folder = '../../../data/'
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     print("Testing parameters for LPMC_MNL_RR_L")
 
-    model = LPMC_MNL_RR_L(data_folder, file='12_13_14.csv')
+    model = LPMC_MNL_RR(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
