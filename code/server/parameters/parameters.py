@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     print("Testing parameters for SM_MNL")
 
-    model = LPMC_MNL_RR_L(data_folder, file='12_13_14.csv'))
+    model = LPMC_MNL_RR_L(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
