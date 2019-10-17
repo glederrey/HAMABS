@@ -18,7 +18,7 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Testing parameters for SM_MNL")
+    print("Testing parameters for LPMC_MNL_RR_L")
 
     model = LPMC_MNL_RR_L(data_folder, file='12_13_14.csv')
 
