@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
-    base_param = {'perc_hybrid': 0.3, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
+    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
 
     main_params = {'verbose': False, 'nbr_epochs': 1000, 'batch': 1000}
     main_params.update(base_param)
@@ -52,7 +52,7 @@ if __name__ == "__main__":
         with open('results/parameters_test.json', 'w') as outfile:
             json.dump(res, outfile)
 
-        print("{}/10 done!".format(i+1))
+        print("{}/{} done!".format(i+1, draws))
 
     print("")
     print("Start with thresh_upd")
@@ -84,7 +84,7 @@ if __name__ == "__main__":
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['thresh_upd'] = base_param['thresh_upd']
@@ -118,7 +118,7 @@ if __name__ == "__main__":
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['count_upd'] = base_param['count_upd']
@@ -152,7 +152,7 @@ if __name__ == "__main__":
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['window'] = base_param['window']
@@ -186,7 +186,7 @@ if __name__ == "__main__":
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i+1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['factor_upd'] = base_param['factor_upd']
@@ -220,7 +220,7 @@ if __name__ == "__main__":
             with open('results/parameters_test.json', 'w') as outfile:
                 json.dump(res, outfile)
 
-            print("  {}/10 done!".format(i + 1))
+            print("{}/{} done!".format(i + 1, draws))
         print("")
 
     print("DONE!")

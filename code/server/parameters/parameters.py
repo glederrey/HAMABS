@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
-    base_param = {'perc_hybrid': 0.3, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
+    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
 
     main_params = {'verbose': False, 'nbr_epochs': 1000, 'batch': 1000}
     main_params.update(base_param)

@@ -14,7 +14,7 @@ class Hybrid(Direction):
 
         self.use_hessian = True
 
-        self.perc = 0.3
+        self.perc = 30
 
     def compute_func_and_derivatives(self, batch, full_size):
 
@@ -100,7 +100,7 @@ class Hybrid(Direction):
 
     def update_dir(self, batch, full_size):
         # Very simple rule
-        if batch >= self.perc*full_size and self.use_hessian:
+        if batch >= self.perc*full_size/100 and self.use_hessian:
             if self.verbose:
                 self._write("  Change from Newton step to BFGS!\n")
 

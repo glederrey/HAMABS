@@ -17,7 +17,7 @@ class Hybrid_INV(Direction):
 
         self.switch = False
 
-        self.perc = kwargs.get('perc_hybrid', 0.3)
+        self.perc = kwargs.get('perc_hybrid', 30)
 
         self.time_hessian = []
         self.batches = []
@@ -117,7 +117,7 @@ class Hybrid_INV(Direction):
             # We need to test if we want to switch the algorithm or not
 
             # Very simple rule
-            if batch >= self.perc*full_size and self.use_hessian:
+            if batch >= self.perc*full_size/100 and self.use_hessian:
                 if self.verbose:
                     self._write("  Change from Newton step to BFGS!\n")
 
