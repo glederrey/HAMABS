@@ -18,6 +18,8 @@ class LineSearchABS(LineSearch):
 
         self.stocha = True
 
+        self.batches = [self.batch]
+
         # Parameters for Batch Size Update
         update = kwargs.get('update', 'geometric')
         window = kwargs.get('window', 10)
@@ -30,6 +32,8 @@ class LineSearchABS(LineSearch):
     def update_batch(self, it, fk):
         old_batch = self.batch
         self.batch = self.abs.upd(it, fk/self.batch, self.batch)
+
+        self.batches.append(self.batch)
 
         if self.batch != old_batch:
             return True

@@ -200,8 +200,6 @@ class OptAlg:
 
             sc = self.stop_crit(xk, fk, gk)
 
-            print(sc)
-
             if 0 < sc <= self.thresh and self.alg_type.batch == self.alg_type.full_size:
                 if self.verbose:
                     self._write("Algorithm Optimized!\n")
