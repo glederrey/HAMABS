@@ -87,7 +87,7 @@ if __name__ == "__main__":
             print("{}/{} done!".format(i + 1, draws))
         print("")
 
-    main_params['thresh_upd'] = base_param['thresh_upd']
+    main_params['thresh_upd'] = 1
 
     print("Start with count_upd")
 
@@ -121,7 +121,7 @@ if __name__ == "__main__":
             print("{}/{} done!".format(i + 1, draws))
         print("")
 
-    main_params['count_upd'] = base_param['count_upd']
+    main_params['count_upd'] = 2
 
     print("Start with window")
 
@@ -155,7 +155,7 @@ if __name__ == "__main__":
             print("{}/{} done!".format(i + 1, draws))
         print("")
 
-    main_params['window'] = base_param['window']
+    main_params['window'] = 10
 
     print("Start with factor_upd")
 
@@ -189,7 +189,7 @@ if __name__ == "__main__":
             print("{}/{} done!".format(i + 1, draws))
         print("")
 
-    main_params['factor_upd'] = base_param['factor_upd']
+    main_params['factor_upd'] = 2
 
     print("Start with perc_hybrid")
 
