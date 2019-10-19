@@ -1,0 +1,29 @@
+Starting to test different parameters for Hybrid at jeu oct 17 17:26:55 CEST 2019
+Testing parameters for LPMC_MNL_RR_L
+Start with base params
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+Start with thresh_upd
+  Value: 0.01
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 344050.0 ON h137 CANCELLED AT 2019-10-17T17:41:54 ***
+slurmstepd: error: *** JOB 344050 ON h137 CANCELLED AT 2019-10-17T17:41:54 ***

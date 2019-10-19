@@ -57,7 +57,7 @@ if __name__ == "__main__":
     print("")
     print("Start with thresh_upd")
 
-    param_tu = [1e-2, 2e-2, 5e-2, 1e-1, 2e-1, 5e-1, 1, 2, 5, 10, 20, 50, 100]
+    param_tu = [1e-1, 2e-1, 5e-1, 1, 2, 5, 10, 20, 50, 100]
 
     res['thresh_upd'] = {}
 

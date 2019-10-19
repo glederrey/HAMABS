@@ -1,0 +1,5 @@
+Starting optimization of LPMC_MNL_DC_L with HAMABS at mer oct 9 18:08:57 CEST 2019
+/home/glederre/bioenv/bin/python: can't open file 'HAMABS.py': [Errno 2] No such file or directory
+srun: error: h190: task 0: Exited with exit code 2
+srun: Terminating job step 326456.0
+Finished at mer oct 9 18:08:58 CEST 2019
