@@ -33,24 +33,24 @@ class Hybrid(Direction):
 
                 ret = []
                 for i in [1,2]:
-                    ret.append(self.mult * tmp[i])
+                    ret.append(self.mult / batch * tmp[i])
 
                 return ret
             else:
                 # Same as BFGS
                 tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)
 
-                ret = [self.mult * tmp[1], B]
+                ret = [self.mult / batch * tmp[1], B]
 
                 return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult / batch * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult * self.f(x)
+            return self.mult / batch * self.f(x)
 
         return f, fprime, grad_hess
 
@@ -61,7 +61,7 @@ class Hybrid(Direction):
     def compute_direction(self, xk, gk, Bk):
         return cg(xk, Bk, -gk)
 
-    def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+    def upd_hessian(self, xk, xk_new, f, fprime, Bk, gk=None):
         if self.use_hessian:
             return Bk
         else:
@@ -69,7 +69,8 @@ class Hybrid(Direction):
             # https://en.wikipedia.org/wiki/Broyden-Fletcher-Goldfarb-Shanno_algorithm
             sk = xk_new - xk
 
-            gk = fprime(xk)
+            if gk is None:
+                gk = fprime(xk)
             gk_new = fprime(xk_new)
 
             yk = gk_new - gk

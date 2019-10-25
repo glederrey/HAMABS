@@ -43,7 +43,7 @@ class Hybrid_INV(Direction):
 
                 ret = []
                 for i in [1,2]:
-                    ret.append(self.mult * tmp[i])
+                    ret.append(self.mult / batch * tmp[i])
 
                 return ret
             else:
@@ -57,17 +57,17 @@ class Hybrid_INV(Direction):
                     B = np.linalg.inv(B)
                     self.switch = False
 
-                ret = [self.mult * tmp[1], B]
+                ret = [self.mult / batch * tmp[1], B]
 
                 return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult / batch * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult * self.f(x)
+            return self.mult / batch * self.f(x)
 
         return f, fprime, grad_hess
 
@@ -81,7 +81,7 @@ class Hybrid_INV(Direction):
         else:
             return -np.dot(Bk, gk)
 
-    def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+    def upd_hessian(self, xk, xk_new, f, fprime, Bk, gk):
         if self.use_hessian:
             return Bk
         else:
@@ -90,7 +90,9 @@ class Hybrid_INV(Direction):
             #     https://github.com/scipy/scipy/blob/master/scipy/optimize/optimize.py
             sk = xk_new - xk
 
-            gk = fprime(xk)
+            if gk is None:
+                gk = fprime(xk)
+
             gk_new = fprime(xk_new)
 
             yk = gk_new - gk

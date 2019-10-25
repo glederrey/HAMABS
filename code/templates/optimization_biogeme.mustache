@@ -22,11 +22,9 @@ if __name__ == "__main__":
 
     for i in range({{repetitions}}):
 
-        start = time.time()
         results = model.biogeme.estimate({{gtol}})
-        tme = time.time() - start
 
-        res['time'].append(tme)
+        res['time'].append(model.biogeme.optimizationTime)
         res['LL'].append(results.data.logLike)
         res['epochs'].append(model.biogeme.numberOfIterations)
 

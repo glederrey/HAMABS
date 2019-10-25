@@ -26,11 +26,9 @@ if __name__ == "__main__":
 
     for i in range({{repetitions}}):
 
-        start = time.time()
         tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': {{batch}}})
-        tme = time.time() - start
 
-        res['time'].append(tme)
+        res['time'].append(tmp['opti_time'])
         res['LL'].append(tmp['fun'])
         res['epochs'].append(tmp['nep'])
 

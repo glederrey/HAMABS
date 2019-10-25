@@ -41,12 +41,12 @@ class Direction:
         # Used by BFGS
         return self.I
 
-    def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+    def upd_hessian(self, xk, xk_new, f, fprime, Bk, gk=None):
         # Used by BFGS and Hybrid
         return Bk
 
-    def compute_final_LL_and_derivatives(self, x):
-        f_val, g_val, B_val, tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=True)
+    def compute_final_LL_and_derivatives(self, x, hessian):
+        f_val, g_val, B_val, tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=hessian)
         return f_val, g_val, B_val
 
     def compute_func_and_derivatives(self):

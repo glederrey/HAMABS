@@ -31,7 +31,7 @@ class LineSearchABS(LineSearch):
 
     def update_batch(self, it, fk):
         old_batch = self.batch
-        self.batch = self.abs.upd(it, fk/self.batch, self.batch)
+        self.batch = self.abs.upd(it, fk, self.batch)
 
         self.batches.append(self.batch)
 

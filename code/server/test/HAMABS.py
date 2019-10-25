@@ -5,7 +5,7 @@ import os
 
 from algos import OptAlg
 
-from models import MTMC_MNL
+from models import MTMC
 
 data_folder = '../../../data/'
 
@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     print("Train MTMC_MNL with HAMABS")
 
-    model = MTMC_MNL(data_folder)
+    model = MTMC(data_folder)
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 

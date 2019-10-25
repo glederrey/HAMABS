@@ -29,7 +29,7 @@ class TrustRegionABS(TrustRegion):
 
     def update_batch(self, it, fk):
         old_batch = self.batch
-        self.batch = self.abs.upd(it, fk/self.batch, self.batch)
+        self.batch = self.abs.upd(it, fk, self.batch)
 
         if self.batch != old_batch:
             return True

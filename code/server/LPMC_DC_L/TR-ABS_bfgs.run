@@ -1,0 +1,13 @@
+#!/bin/bash -l
+#SBATCH --chdir /home/glederre/DCM_Opti/code/server/LPMC_DC_L
+#SBATCH --nodes 1
+#SBATCH --ntasks 1
+#SBATCH --cpus-per-task 24
+#SBATCH --mem 192000
+#SBATCH --time 12:00:00
+
+source ~/bioenv/bin/activate
+echo Starting optimization of LPMC_DC_L with TR-ABS and bfgs at `date`
+srun python -u TR-ABS_bfgs.py
+echo Finished at `date`
+

@@ -84,6 +84,7 @@ class OptAlg:
         self.verbose = kwargs.get('verbose', False)
         self.seed = kwargs.get('seed', -1)
         self.stop_scrit_str = kwargs.get('stop_crit', 'rel_grad')
+        self.compute_final_hessian = kwargs.get('compute_final_hessian', False)
 
         # Formats to display info about subproblem
         self.hd_fmt = '     %-5s  %9s  %8s\n'
@@ -221,7 +222,7 @@ class OptAlg:
 
             # Update the hessian; only used by BFGS.
             # Return the same Bk for the other directions
-            Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk)
+            Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk, gk)
 
             # Make sure xk is still in bounds
             xk = back_to_bounds(xk_new, self.bounds)
@@ -252,18 +253,20 @@ class OptAlg:
         self.opti_time = time.time() - start_time
 
         # Compute the function value, the gradient and the Hessian one last time.
-        fk, gk, Bk = self.dir.compute_final_LL_and_derivatives(xk)
+        fk, gk, Bk = self.dir.compute_final_LL_and_derivatives(xk, hessian=self.compute_final_hessian)
 
         dct = {'x': xk,
                'success': self.optimized,
                'status': status,
                'fun': fk,
                'jac': gk,
-               'hess': Bk,
                'nit': self.it,
                'nep': self.ep,
                'stop_crit': sc,
                'opti_time': self.opti_time}
+
+        if self.compute_final_hessian:
+            dct['hess'] = Bk
 
         return OptimizeResult(dct)
 

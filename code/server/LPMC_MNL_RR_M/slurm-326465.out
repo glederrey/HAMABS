@@ -1,5 +1,0 @@
-Starting optimization of LPMC_MNL_RR_M with HAMABS at mer oct 9 18:10:32 CEST 2019
-Train LPMC_MNL_RR with current Biogeme optimization algorithm.
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** JOB 326465 ON h190 CANCELLED AT 2019-10-09T18:11:38 ***
-slurmstepd: error: *** STEP 326465.0 ON h190 CANCELLED AT 2019-10-09T18:11:38 ***

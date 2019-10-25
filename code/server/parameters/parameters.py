@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_MNL_RR
+from models import LPMC_RR
 
 data_folder = '../../../data/'
 
@@ -18,9 +18,9 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Testing parameters for LPMC_MNL_RR_L")
+    print("Testing parameters for LPMC_RR_L")
 
-    model = LPMC_MNL_RR(data_folder, file='12_13_14.csv')
+    model = LPMC_RR(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
@@ -39,11 +39,9 @@ if __name__ == "__main__":
 
     for i in range(draws):
 
-        start = time.time()
         tmp = model.optimize(ioa, **main_params)
-        tme = time.time() - start
 
-        tmp_res['time'].append(tme)
+        tmp_res['time'].append(tmp['opti_time'])
         tmp_res['LL'].append(tmp['fun'])
         tmp_res['epochs'].append(tmp['nep'])
 
@@ -71,11 +69,9 @@ if __name__ == "__main__":
 
             main_params['thresh_upd'] = tu
 
-            start = time.time()
             tmp = model.optimize(ioa, **main_params)
-            tme = time.time() - start
 
-            tmp_res['time'].append(tme)
+            tmp_res['time'].append(tmp['opti_time'])
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
@@ -105,11 +101,9 @@ if __name__ == "__main__":
 
             main_params['count_upd'] = co
 
-            start = time.time()
             tmp = model.optimize(ioa, **main_params)
-            tme = time.time() - start
 
-            tmp_res['time'].append(tme)
+            tmp_res['time'].append(tmp['opti_time'])
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
@@ -139,11 +133,9 @@ if __name__ == "__main__":
 
             main_params['window'] = win
 
-            start = time.time()
             tmp = model.optimize(ioa, **main_params)
-            tme = time.time() - start
 
-            tmp_res['time'].append(tme)
+            tmp_res['time'].append(tmp['opti_time'])
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
@@ -173,11 +165,9 @@ if __name__ == "__main__":
 
             main_params['factor_upd'] = fu
 
-            start = time.time()
             tmp = model.optimize(ioa, **main_params)
-            tme = time.time() - start
 
-            tmp_res['time'].append(tme)
+            tmp_res['time'].append(tmp['opti_time'])
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
@@ -207,11 +197,9 @@ if __name__ == "__main__":
 
             main_params['perc_hybrid'] = ph
 
-            start = time.time()
             tmp = model.optimize(ioa, **main_params)
-            tme = time.time() - start
 
-            tmp_res['time'].append(tme)
+            tmp_res['time'].append(tmp['opti_time'])
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
@@ -222,5 +210,38 @@ if __name__ == "__main__":
 
             print("{}/{} done!".format(i + 1, draws))
         print("")
+
+    main_params['perc_hybrid'] = 30
+
+    print("Start with stopping crit")
+
+    param_sc = [1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0]
+
+    res['stop_crit'] = {}
+
+    for sc in param_sc:
+
+        tmp_res = {'time': [], 'LL': [], 'epochs': []}
+
+        print("  Value: {}".format(sc))
+
+        for i in range(draws):
+
+            main_params['thresh'] = sc
+
+            tmp = model.optimize(ioa, **main_params)
+
+            tmp_res['time'].append(tmp['opti_time'])
+            tmp_res['LL'].append(tmp['fun'])
+            tmp_res['epochs'].append(tmp['nep'])
+
+            res['stop_crit'][sc] = tmp_res
+
+            with open('results/parameters.json', 'w') as outfile:
+                json.dump(res, outfile)
+
+            print("{}/{} done!".format(i + 1, draws))
+        print("")
+
 
     print("DONE!")
