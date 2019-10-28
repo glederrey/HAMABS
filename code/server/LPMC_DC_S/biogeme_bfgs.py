@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
         results = model.biogeme.estimate()
 
-        res['time'].append(model.biogeme.optimizationTime)
+        res['time'].append(model.biogeme.optimizationTime.total_seconds())
         res['LL'].append(results.data.logLike)
         res['epochs'].append(model.biogeme.numberOfIterations)
 

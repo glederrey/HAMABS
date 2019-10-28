@@ -105,5 +105,6 @@ venv.bak/
 
 data
 article
+old_article
 .idea
 code/MNIST_data
