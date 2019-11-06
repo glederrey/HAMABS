@@ -44,13 +44,14 @@ class BFGS_INV(Direction):
 
         return -np.dot(Bk, gk)
 
-    def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+    def upd_hessian(self, xk, xk_new, f, fprime, Bk, gk=None):
         # Have a look at the Wikipedia page for BFGS for this algorithm
         # Greatly inspired by:
         #     https://github.com/scipy/scipy/blob/master/scipy/optimize/optimize.py
         sk = xk_new - xk
 
-        gk = fprime(xk)
+        if gk is None:
+            gk = fprime(xk)
         gk_new = fprime(xk_new)
 
         yk = gk_new - gk

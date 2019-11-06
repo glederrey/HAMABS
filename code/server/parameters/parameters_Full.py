@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_RR
+from models import LPMC_Full
 
 data_folder = '../../../data/'
 
@@ -18,9 +18,9 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Testing parameters for LPMC_RR_L")
+    print("Testing parameters for LPMC_Full_L")
 
-    model = LPMC_RR(data_folder, file='12_13_14.csv')
+    model = LPMC_Full(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
         res['base'] = tmp_res
 
-        with open('results/parameters.json', 'w') as outfile:
+        with open('results/parameters_Full.json', 'w') as outfile:
             json.dump(res, outfile)
 
         print("{}/{} done!".format(i+1, draws))
@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
             res['thresh_upd'][tu] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
             res['count_upd'][co] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -141,7 +141,7 @@ if __name__ == "__main__":
 
             res['window'][win] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -173,7 +173,7 @@ if __name__ == "__main__":
 
             res['factor_upd'][fu] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
             res['perc_hybrid'][ph] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -237,11 +237,10 @@ if __name__ == "__main__":
 
             res['stop_crit'][sc] = tmp_res
 
-            with open('results/parameters.json', 'w') as outfile:
+            with open('results/parameters_Full.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
         print("")
-
 
     print("DONE!")

@@ -40,12 +40,13 @@ class BFGS(Direction):
 
         return cg(xk, Bk, -gk)
 
-    def upd_hessian(self, xk, xk_new, f, fprime, Bk):
+    def upd_hessian(self, xk, xk_new, f, fprime, Bk, gk=None):
         # Have a look at the Wikipedia page for BFGS for this algorithm
         # https://en.wikipedia.org/wiki/Broyden-Fletcher-Goldfarb-Shanno_algorithm
         sk = xk_new - xk
 
-        gk = fprime(xk)
+        if gk is None:
+            gk = fprime(xk)
         gk_new = fprime(xk_new)
 
         yk = gk_new - gk
