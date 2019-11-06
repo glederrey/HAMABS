@@ -47,7 +47,7 @@ if __name__ == "__main__":
 
         res['base'] = tmp_res
 
-        with open('results/parameters_Full.json', 'w') as outfile:
+        with open('results/parameters_Full1.json', 'w') as outfile:
             json.dump(res, outfile)
 
         print("{}/{} done!".format(i+1, draws))
@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
             res['thresh_upd'][tu] = tmp_res
 
-            with open('results/parameters_Full.json', 'w') as outfile:
+            with open('results/parameters_Full1.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
             res['count_upd'][co] = tmp_res
 
-            with open('results/parameters_Full.json', 'w') as outfile:
+            with open('results/parameters_Full1.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
@@ -141,106 +141,12 @@ if __name__ == "__main__":
 
             res['window'][win] = tmp_res
 
-            with open('results/parameters_Full.json', 'w') as outfile:
+            with open('results/parameters_Full1.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
         print("")
 
     main_params['window'] = 10
-
-    print("Start with factor_upd")
-
-    param_fu = [1.1, 1.2, 1.3, 1.4, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 6, 7, 8, 9, 10]
-
-    res['factor_upd'] = {}
-
-    for fu in param_fu:
-
-        tmp_res = {'time': [], 'LL': [], 'epochs': []}
-
-        print("  Value: {}".format(fu))
-
-        for i in range(draws):
-
-            main_params['factor_upd'] = fu
-
-            tmp = model.optimize(ioa, **main_params)
-
-            tmp_res['time'].append(tmp['opti_time'])
-            tmp_res['LL'].append(tmp['fun'])
-            tmp_res['epochs'].append(tmp['nep'])
-
-            res['factor_upd'][fu] = tmp_res
-
-            with open('results/parameters_Full.json', 'w') as outfile:
-                json.dump(res, outfile)
-
-            print("{}/{} done!".format(i + 1, draws))
-        print("")
-
-    main_params['factor_upd'] = 2
-
-    print("Start with perc_hybrid")
-
-    param_ph = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
-
-    res['perc_hybrid'] = {}
-
-    for ph in param_ph:
-
-        tmp_res = {'time': [], 'LL': [], 'epochs': []}
-
-        print("  Value: {}".format(ph))
-
-        for i in range(draws):
-
-            main_params['perc_hybrid'] = ph
-
-            tmp = model.optimize(ioa, **main_params)
-
-            tmp_res['time'].append(tmp['opti_time'])
-            tmp_res['LL'].append(tmp['fun'])
-            tmp_res['epochs'].append(tmp['nep'])
-
-            res['perc_hybrid'][ph] = tmp_res
-
-            with open('results/parameters_Full.json', 'w') as outfile:
-                json.dump(res, outfile)
-
-            print("{}/{} done!".format(i + 1, draws))
-        print("")
-
-    main_params['perc_hybrid'] = 30
-
-    print("Start with stopping crit")
-
-    param_sc = [1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0]
-
-    res['stop_crit'] = {}
-
-    for sc in param_sc:
-
-        tmp_res = {'time': [], 'LL': [], 'epochs': []}
-
-        print("  Value: {}".format(sc))
-
-        for i in range(draws):
-
-            main_params['thresh'] = sc
-
-            tmp = model.optimize(ioa, **main_params)
-
-            tmp_res['time'].append(tmp['opti_time'])
-            tmp_res['LL'].append(tmp['fun'])
-            tmp_res['epochs'].append(tmp['nep'])
-
-            res['stop_crit'][sc] = tmp_res
-
-            with open('results/parameters_Full.json', 'w') as outfile:
-                json.dump(res, outfile)
-
-            print("{}/{} done!".format(i + 1, draws))
-        print("")
 
     print("DONE!")
