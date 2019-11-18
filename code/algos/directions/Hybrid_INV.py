@@ -22,7 +22,7 @@ class Hybrid_INV(Direction):
         self.time_hessian = []
         self.batches = []
 
-    def compute_func_and_derivatives(self, batch, full_size):
+    def compute_func_and_derivatives(self, batch, normalization, full_size):
 
         self.batches.append(batch)
 
@@ -43,7 +43,7 @@ class Hybrid_INV(Direction):
 
                 ret = []
                 for i in [1,2]:
-                    ret.append(self.mult / batch * tmp[i])
+                    ret.append(self.mult / normalization * tmp[i])
 
                 return ret
             else:
@@ -57,17 +57,17 @@ class Hybrid_INV(Direction):
                     B = np.linalg.inv(B)
                     self.switch = False
 
-                ret = [self.mult / batch * tmp[1], B]
+                ret = [self.mult / normalization * tmp[1], B]
 
                 return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / batch * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult / normalization * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / batch * self.f(x)
+            return self.mult / normalization * self.f(x)
 
         return f, fprime, grad_hess
 

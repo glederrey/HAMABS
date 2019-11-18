@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
     for i in range(20):
 
-        tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+        tmp = model.optimize(ioa, **{'verbose': False, 'max_epochs': 1000, 'batch': 1000})
 
         res['time'].append(tmp['opti_time'])
         res['LL'].append(tmp['fun'])

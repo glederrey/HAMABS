@@ -188,7 +188,9 @@ class OptAlg:
         while self.ep < self.max_epochs:
 
             # Get the function, its gradient and the Hessian
-            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, self.alg_type.full_size)
+
+            norm = 1 if self.alg_type_str == 'TR' or self.alg_type_str == 'TR-ABS' else self.alg_type.batch
+            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, norm, self.alg_type.full_size)
 
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)

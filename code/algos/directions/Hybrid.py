@@ -16,7 +16,7 @@ class Hybrid(Direction):
 
         self.perc = 30
 
-    def compute_func_and_derivatives(self, batch, full_size):
+    def compute_func_and_derivatives(self, batch, normalization, full_size):
 
         if batch != full_size or self.batch_changed:
             # Set the sample for the batch
@@ -33,24 +33,24 @@ class Hybrid(Direction):
 
                 ret = []
                 for i in [1,2]:
-                    ret.append(self.mult / batch * tmp[i])
+                    ret.append(self.mult / normalization * tmp[i])
 
                 return ret
             else:
                 # Same as BFGS
                 tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)
 
-                ret = [self.mult / batch * tmp[1], B]
+                ret = [self.mult / normalization * tmp[1], B]
 
                 return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / batch * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult / normalization * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / batch * self.f(x)
+            return self.mult / normalization * self.f(x)
 
         return f, fprime, grad_hess
 

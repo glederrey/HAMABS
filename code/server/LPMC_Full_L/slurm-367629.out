@@ -1,7 +1,0 @@
-Starting optimization of LPMC_Full_L with TR and hess at mar nov 5 13:06:58 CET 2019
-Train LPMC_Full_L with TR and hess
-1/20 done!
-2/20 done!
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 367629.0 ON h135 CANCELLED AT 2019-11-06T11:50:23 ***
-slurmstepd: error: *** JOB 367629 ON h135 CANCELLED AT 2019-11-06T11:50:23 ***
