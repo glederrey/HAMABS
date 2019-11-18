@@ -1,0 +1,13 @@
+Starting optimization of LPMC_DC_S with LS and bfgs at mar nov 5 12:45:52 CET 2019
+Train LPMC_DC_S with LS and bfgs
+Traceback (most recent call last):
+  File "LS_bfgs.py", line 29, in <module>
+    tmp = model.optimize(ioa, **{'verbose': False, 'nbr_epochs': 1000, 'batch': 1000})
+  File "../../models/LPMC_DC.py", line 100, in optimize
+    return algo.solve(maximize=True)
+  File "../../algos/OptAlg.py", line 225, in solve
+    Bk = self.dir.upd_hessian(xk, xk_new, f, fprime, Bk, gk)
+TypeError: upd_hessian() takes 6 positional arguments but 7 were given
+srun: error: h124: task 0: Exited with exit code 1
+srun: Terminating job step 367568.0
+Finished at mar nov 5 12:46:00 CET 2019
