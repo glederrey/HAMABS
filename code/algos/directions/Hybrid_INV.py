@@ -54,7 +54,10 @@ class Hybrid_INV(Direction):
 
                 # Inverse the Hessian the first time we switch from Hessian step to BFGS
                 if self.switch:
-                    B = np.linalg.inv(B)
+                    try:
+                        B = np.linalg.inv(B)
+                    except:
+                        B = np.eye(len(B))
                     self.switch = False
 
                 ret = [self.mult / normalization * tmp[1], B]
