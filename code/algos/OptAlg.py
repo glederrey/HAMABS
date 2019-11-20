@@ -187,9 +187,13 @@ class OptAlg:
 
         while self.ep < self.max_epochs:
 
-            # Get the function, its gradient and the Hessian
+            # Normalize the function and derivatives if we use an hybrid algorithm
+            norm = self.alg_type.batch if 'hybrid' in self.dir_str else 1
 
-            norm = 1 if self.alg_type_str == 'TR' or self.alg_type_str == 'TR-ABS' else self.alg_type.batch
+            if 'hybrid' in self.dir_str and self.dir.perc == 0:
+                norm = 1
+
+            # Get the function, its gradient and the Hessian
             f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, norm, self.alg_type.full_size)
 
             fk = f(xk)
