@@ -1,0 +1,27 @@
+Starting optimization of LPMC_Full_L with TR-ABS and bfgs at mar nov 19 18:10:56 CET 2019
+Train LPMC_Full_L with TR-ABS and bfgs
+../../algos/directions/BFGS.py:55: RuntimeWarning: divide by zero encountered in double_scalars
+  alpha = 1. / np.dot(yk.T, sk)
+../../algos/directions/BFGS.py:63: RuntimeWarning: divide by zero encountered in double_scalars
+  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+Finished at jeu nov 21 02:24:40 CET 2019

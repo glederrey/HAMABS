@@ -1,0 +1,19 @@
+Starting optimization of LPMC_Full_L with LS-ABS and bfgs-inv at mar nov 19 18:10:56 CET 2019
+Train LPMC_Full_L with LS-ABS and bfgs-inv
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 403593 ON h196 CANCELLED AT 2019-11-21T06:11:07 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 403593.0 ON h196 CANCELLED AT 2019-11-21T06:11:07 DUE TO TIME LIMIT ***

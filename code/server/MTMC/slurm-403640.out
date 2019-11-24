@@ -1,0 +1,24 @@
+Starting optimization of MTMC with LS and bfgs-inv at mar nov 19 18:10:57 CET 2019
+Train MTMC with LS and bfgs-inv
+../../models/MTMC.py:25: FutureWarning: read_table is deprecated, use read_csv instead, passing sep='\t'.
+  df = pd.read_table(self.data_folder + 'MTMC/biogemeMTMC_2015_mobility_tools_cleaned.dat')
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 403640.0 ON h094 CANCELLED AT 2019-11-21T18:11:09 DUE TO TIME LIMIT ***
+slurmstepd: error: *** JOB 403640 ON h094 CANCELLED AT 2019-11-21T18:11:09 DUE TO TIME LIMIT ***

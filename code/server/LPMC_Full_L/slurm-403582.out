@@ -1,0 +1,20 @@
+Starting optimization of LPMC_Full_L with LS and grad at mar nov 19 18:07:53 CET 2019
+Train LPMC_Full_L with LS and grad
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+slurmstepd: error: *** JOB 403582 ON h042 CANCELLED AT 2019-11-21T06:08:07 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 403582.0 ON h042 CANCELLED AT 2019-11-21T06:08:07 DUE TO TIME LIMIT ***
