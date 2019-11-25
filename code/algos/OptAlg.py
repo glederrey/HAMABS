@@ -188,7 +188,9 @@ class OptAlg:
         while self.ep < self.max_epochs:
 
             # Normalize the function and derivatives if we use an hybrid algorithm
-            norm = self.alg_type.batch if 'hybrid' in self.dir_str else 1
+            #norm = self.alg_type.batch if 'hybrid' in self.dir_str else 1
+
+            norm = 1
 
             if 'hybrid' in self.dir_str and self.dir.perc == 0:
                 norm = 1

@@ -7,7 +7,7 @@ import json
 
 from algos import OptAlg
 
-from models import LPMC_Full
+from models import LPMC_RR
 
 data_folder = '../../../data/'
 
@@ -18,9 +18,9 @@ if __name__ == "__main__":
     if not os.path.exists('./results'):
         os.makedirs('./results')
 
-    print("Testing parameters for LPMC_Full_L")
+    print("Testing parameters for LPMC_RR_L")
 
-    model = LPMC_Full(data_folder, file='12_13_14.csv')
+    model = LPMC_RR(data_folder, file='12_13_14.csv')
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
@@ -33,21 +33,20 @@ if __name__ == "__main__":
 
     res = {}
 
-    print("Start with count_upd")
+    print("Start with perc_hybrid")
 
-    param_co = [15, 16, 17, 18, 19, 20]
+    param_ph = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
 
-    res['count_upd'] = {}
+    res['perc_hybrid'] = {}
 
-    for co in param_co:
+    for ph in param_ph:
 
         tmp_res = {'time': [], 'LL': [], 'epochs': []}
 
-        print("  Value: {}".format(co))
+        print("  Value: {}".format(ph))
 
         for i in range(draws):
-
-            main_params['count_upd'] = co
+            main_params['perc_hybrid'] = ph
 
             tmp = model.optimize(ioa, **main_params)
 
@@ -55,9 +54,9 @@ if __name__ == "__main__":
             tmp_res['LL'].append(tmp['fun'])
             tmp_res['epochs'].append(tmp['nep'])
 
-            res['count_upd'][co] = tmp_res
+            res['perc_hybrid'][ph] = tmp_res
 
-            with open('results/Full_count.json', 'w') as outfile:
+            with open('results/RR_hybrid.json', 'w') as outfile:
                 json.dump(res, outfile)
 
             print("{}/{} done!".format(i + 1, draws))
