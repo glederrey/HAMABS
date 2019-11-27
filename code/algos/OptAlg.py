@@ -187,16 +187,8 @@ class OptAlg:
 
         while self.ep < self.max_epochs:
 
-            # Normalize the function and derivatives if we use an hybrid algorithm
-            #norm = self.alg_type.batch if 'hybrid' in self.dir_str else 1
-
-            norm = 1
-
-            if 'hybrid' in self.dir_str and self.dir.perc == 0:
-                norm = 1
-
             # Get the function, its gradient and the Hessian
-            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, norm, self.alg_type.full_size)
+            f, fprime, grad_hess = self.dir.compute_func_and_derivatives(self.alg_type.batch, self.alg_type.full_size)
 
             fk = f(xk)
             gk, Bk = grad_hess(xk, Bk)
@@ -236,7 +228,7 @@ class OptAlg:
             xk = back_to_bounds(xk_new, self.bounds)
 
             # Update the batch size if we're using an ABS algorithm
-            self.dir.batch_changed = self.alg_type.update_batch(self.it, fk)
+            self.dir.batch_changed = self.alg_type.update_batch(self.it, fk/self.alg_type.batch)
 
             # Update the Hybrid direction if needed (does nothing for all other directions)
             self.dir.update_dir(self.alg_type.batch, self.alg_type.full_size)

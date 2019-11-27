@@ -5,3 +5,5 @@ from .LineSearchABS import LineSearchABS
 
 from .TrustRegion import TrustRegion
 from .TrustRegionABS import TrustRegionABS
+
+from .ABS import ABS

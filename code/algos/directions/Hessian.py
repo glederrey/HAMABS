@@ -8,7 +8,7 @@ class Hessian(Direction):
     def __init__(self, **kwargs):
         Direction.__init__(self, **kwargs)
 
-    def compute_func_and_derivatives(self, batch, normalization, full_size):
+    def compute_func_and_derivatives(self, batch, full_size):
 
         if batch != full_size or self.batch_changed:
             # Set the sample for the batch
@@ -23,17 +23,17 @@ class Hessian(Direction):
 
             ret = []
             for i in [1,2]:
-                ret.append(self.mult / normalization * tmp[i])
+                ret.append(self.mult * tmp[i])
 
             return ret
 
         def fprime(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / normalization * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
+            return self.mult * self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)[1]
 
         def f(x):
             x = back_to_bounds(x, self.bounds)
-            return self.mult / normalization * self.f(x)
+            return self.mult * self.f(x)
 
         return f, fprime, grad_hess
 
