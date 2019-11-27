@@ -78,7 +78,7 @@ class OptAlg:
         self.n = len(x0)
 
         # Other parameters in kwargs
-        self.max_epochs = kwargs.get('max_epochs', 200)
+        self.max_epochs = kwargs.get('max_epochs', 1000)
         self.thresh = kwargs.get('thresh', 1e-6)
         self.bounds = kwargs.get('bounds', None)
         self.verbose = kwargs.get('verbose', False)

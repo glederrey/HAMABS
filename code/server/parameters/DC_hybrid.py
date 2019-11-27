@@ -24,9 +24,9 @@ if __name__ == "__main__":
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
-    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2, 'stop_crit': 1e-6}
+    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
 
-    main_params = {'verbose': True, 'nbr_epochs': 1000, 'batch': 1000}
+    main_params = {'verbose': False, 'max_epochs': 1000, 'batch': 1000}
     main_params.update(base_param)
 
     draws = 10
@@ -45,8 +45,11 @@ if __name__ == "__main__":
 
         print("  Value: {}".format(ph))
 
+        main_params['perc_hybrid'] = ph
+
         for i in range(draws):
-            main_params['perc_hybrid'] = ph
+
+            print(main_params)
 
             tmp = model.optimize(ioa, **main_params)
 

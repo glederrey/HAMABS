@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     ioa = OptAlg(alg_type='LS-ABS', direction='hybrid-inv')
 
-    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2, 'stop_crit': 1e-6}
+    base_param = {'perc_hybrid': 30, 'thresh_upd': 1, 'count_upd': 2, 'window': 10, 'factor_upd': 2}
 
     main_params = {'verbose': False, 'nbr_epochs': 1000, 'batch': 1000}
     main_params.update(base_param)
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     print("Start with count_upd")
 
-    param_co = [15, 16, 17, 18, 19, 20]
+    param_co = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
     res['count_upd'] = {}
 

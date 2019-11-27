@@ -19,7 +19,6 @@ class Hybrid_INV(Direction):
 
         self.perc = kwargs.get('perc_hybrid', 30)
 
-        self.time_hessian = []
         self.batches = []
 
     def compute_func_and_derivatives(self, batch, full_size):
@@ -37,9 +36,7 @@ class Hybrid_INV(Direction):
 
             if self.use_hessian:
                 # Same as Hessian
-                start = time.time()
                 tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=True)
-                self.time_hessian.append(time.time()-start)
 
                 ret = []
                 for i in [1,2]:
@@ -48,9 +45,7 @@ class Hybrid_INV(Direction):
                 return ret
             else:
                 # Same as BFGS
-                start = time.time()
                 tmp = self.biogeme.calculateLikelihoodAndDerivatives(x, hessian=False)
-                self.time_hessian.append(time.time()-start)
 
                 # Inverse the Hessian the first time we switch from Hessian step to BFGS
                 if self.switch:
