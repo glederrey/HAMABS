@@ -1,0 +1,27 @@
+Starting optimization of LPMC_DC_S with TR-ABS and hybrid at mer nov 27 16:20:09 CET 2019
+Train LPMC_DC_S with TR-ABS and hybrid
+../../algos/directions/Hybrid.py:79: RuntimeWarning: divide by zero encountered in double_scalars
+  alpha = 1. / np.dot(yk.T, sk)
+../../algos/directions/Hybrid.py:87: RuntimeWarning: divide by zero encountered in double_scalars
+  beta = -1 / np.dot(sk.T, np.dot(Bk, sk))
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+Finished at mer nov 27 16:21:04 CET 2019
