@@ -9,12 +9,14 @@ class LineSearchABS(LineSearch):
 
         self.batch = kwargs.get('batch', int(0.1*self.full_size))
 
+
         # The batch size is in percentage
         if self.batch < 1:
             self.batch = int(self.batch*self.full_size)
         else:
             # Make sure it's an int
             self.batch = int(self.batch)
+
 
         self.stocha = True
 
