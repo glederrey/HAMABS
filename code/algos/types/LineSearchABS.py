@@ -11,7 +11,7 @@ class LineSearchABS(LineSearch):
 
 
         # The batch size is in percentage
-        if self.batch < 1:
+        if self.batch <= 1:
             self.batch = int(self.batch*self.full_size)
         else:
             # Make sure it's an int
