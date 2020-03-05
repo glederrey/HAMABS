@@ -1,0 +1,176 @@
+Starting to test different parameters for Batch at mar mar 3 15:24:45 CET 2020
+Testing parameters for LPMC_DC_L
+Start with init batch size
+  Value: 0.01
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.012332585156500505
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.02
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.05
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.1
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.2
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 0.5
+1/20 done!
+2/20 done!
+3/20 done!
+4/20 done!
+5/20 done!
+6/20 done!
+7/20 done!
+8/20 done!
+9/20 done!
+10/20 done!
+11/20 done!
+12/20 done!
+13/20 done!
+14/20 done!
+15/20 done!
+16/20 done!
+17/20 done!
+18/20 done!
+19/20 done!
+20/20 done!
+
+  Value: 1.0
+Traceback (most recent call last):
+  File "DC_batch.py", line 55, in <module>
+    tmp = model.optimize(ioa, **main_params)
+  File "../../models/LPMC_DC.py", line 100, in optimize
+    return algo.solve(maximize=True)
+  File "../../algos/OptAlg.py", line 193, in solve
+    fk = f(xk)
+  File "../../algos/directions/Hybrid_INV.py", line 69, in f
+    return self.mult * self.f(x)
+  File "../../algos/directions/Direction.py", line 15, in <lambda>
+    self.f = lambda x: self.biogeme.calculateLikelihood(x)
+  File "/home/glederre/pybio/lib/python3.6/site-packages/biogeme/biogeme.py", line 250, in calculateLikelihood
+    f = self.theC.calculateLikelihood(x,self.fixedBetaValues)
+  File "src/cbiogeme.pyx", line 93, in biogeme.cbiogeme.pyBiogeme.calculateLikelihood
+RuntimeError: src/biogeme.cc:296: Biogeme exception: Error for data entry 22 : src/bioExprLiteral.cc:116: Biogeme exception: tmode: 22 out of range [0,0]
+srun: error: h096: task 0: Exited with exit code 1
+srun: Terminating job step 629514.0
+Finished at mar mar 3 15:36:19 CET 2020
